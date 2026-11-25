@@ -258,13 +258,13 @@ function Thread({ tess, from, to, strength }: { tess: Tess; from: number; to: nu
     // strings fade unless you're near one of their ends, so only the lineage around you is drawn
     const cam = state.camera.position
     const near = Math.min(cam.distanceTo(A.pos), cam.distanceTo(Bm.pos))
-    const e = U.uExposure.value * Math.max(k, THREE.MathUtils.clamp(1.2 - near / 30, 0.04, 1))
+    const e = U.uExposure.value * Math.max(k, THREE.MathUtils.clamp(1.15 - near / 18, 0.0, 1))
     if (base.current) {
-      base.current.material.opacity = Math.min(1, 0.22 + strength * 0.45 + k * 0.6) * e
+      base.current.material.opacity = Math.min(1, 0.12 + strength * 0.35 + k * 0.7) * e
       base.current.material.linewidth = (strength > 0.7 ? 3 : 1.9) + k * 2
     }
     if (pulse.current) {
-      pulse.current.material.opacity = Math.min(1, 0.35 + strength * 0.5 + k) * e
+      pulse.current.material.opacity = Math.min(1, 0.2 + strength * 0.4 + k) * e
       pulse.current.material.linewidth = (strength > 0.7 ? 6.5 : 4) + k * 3
       // light travels from what was saved toward what was made
       pulse.current.material.dashOffset = -(((state.clock.elapsedTime * (0.16 + k * 0.25) + phase) % 1) * len * 1.25)

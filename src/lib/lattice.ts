@@ -154,12 +154,20 @@ export function buildTesseract(items: Item[], palettes: Map<string, THREE.Color[
         const subs = rand() < 0.35 ? 2 + Math.floor(rand() * 2) : 1
         // perpendicular jitter; keep cross-planes near their slice plane so moments stay clear
         let ja = (rand() - 0.5) * (axis === 2 ? 3.2 : 2.6)
-        const jb = (rand() - 0.5) * (axis === 2 ? 3.2 : 1.0)
+        let jb = (rand() - 0.5) * (axis === 2 ? 3.2 : 1.0)
+        // bundles that frame the main tunnel stay out of the picture zone (walls sit 3.4 from the path)
+        const framesA = Math.abs(Math.abs(a0) - h0) < 0.01
+        const framesB = Math.abs(Math.abs(b0) - h0) < 0.01
+        const frames = axis === 2 ? framesA && framesB : framesA
         // bundles framing the void you drift through only ever lean outward
-        if (axis !== 2 && Math.abs(Math.abs(a0) - h0) < 0.01) ja = Math.sign(a0) * rand() * 1.4
+        if (frames) {
+          ja = Math.sign(a0) * (0.9 + rand() * 1.2)
+          if (axis === 2) jb = Math.sign(b0) * (0.9 + rand() * 1.2)
+        }
         for (let sb = 0; sb < subs; sb++) {
-          const b1 = (subs > 1 ? 1.0 + rand() * 1.8 : 2.0 + rand() * 3.2)
-          const b2 = (subs > 1 ? 1.0 + rand() * 1.8 : 1.8 + rand() * 3.0)
+          const cap = frames ? 2.2 : 99
+          const b1 = Math.min(cap, subs > 1 ? 1.0 + rand() * 1.8 : 2.0 + rand() * 3.2)
+          const b2 = Math.min(cap, subs > 1 ? 1.0 + rand() * 1.8 : 1.8 + rand() * 3.0)
           const a = a0 + ja + (subs > 1 ? (sb - (subs - 1) / 2) * (b1 + 0.4 + rand() * 1.4) : 0)
           const b = b0 + jb + (subs > 1 ? (rand() - 0.5) * 1.6 : 0)
           const density = 0.42 + rand() * 0.36
@@ -286,7 +294,7 @@ export function buildTesseract(items: Item[], palettes: Map<string, THREE.Color[
         const quat = new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 0, 1), normal)
         const up = new THREE.Vector3(0, 1, 0).applyQuaternion(quat)
         const T = SLOTS[pref[0]]
-        moments.push({ index: moments.length, item, slice: sl, pos, normal, w, h: hh, track: [T.x - T.nx * 1.4, T.y - T.ny * 1.4], quat, up })
+        moments.push({ index: moments.length, item, slice: sl, pos, normal, w, h: hh, track: [T.x - T.nx * 2.3, T.y - T.ny * 2.3], quat, up })
         placed = true
         break
       }
@@ -312,9 +320,9 @@ export function buildTesseract(items: Item[], palettes: Map<string, THREE.Color[
     const [tx, ty] = k.split(',').map(Number)
     ms.sort((a, b) => b.pos.z - a.pos.z)
     const z0 = ms[0].pos.z + P * 1.5
-    const tw = 1.4 + rand() * 0.8
-    const th = 1.3 + rand() * 0.8
-    for (let n = 0; n < 120; n++) {
+    const tw = 0.8 + rand() * 0.4
+    const th = 0.8 + rand() * 0.4
+    for (let n = 0; n < 34; n++) {
       const o1 = (rand() - 0.5) * tw
       const o2 = (rand() - 0.5) * th
       const w1 = 0.02 + rand() * rand() * 0.22
