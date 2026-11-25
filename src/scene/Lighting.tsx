@@ -33,10 +33,10 @@ export function Lighting({ tess }: { tess: Tess }) {
       const r = ranked[i]
       if (!l) continue
       if (!r) { l.intensity = 0; continue }
-      tmp.copy(r.m.pos).addScaledVector(r.m.normal, 1.4)
+      tmp.copy(r.m.pos).addScaledVector(r.m.normal, 3.2)
       l.position.lerp(tmp, 0.2)
       const boost = st.selected === r.m.index ? 0.9 : st.hovered === r.m.index ? 1.25 : 1
-      l.intensity = (r.m.item.kind === 'output' ? 26 : 18) * boost * e
+      l.intensity = (r.m.item.kind === 'output' ? 30 : 24) * boost * e
     }
   })
 

@@ -142,9 +142,10 @@ function MomentView({ m, texture }: { m: Moment; texture: THREE.Texture }) {
   // Pangram-flagged (AI-made) saves hang dead: grey, cold, unlit, half there.
   const dead = isDead(m.item)
   const mat = useMemo(() => {
-    const mm = new THREE.MeshStandardMaterial({
+    // matte paper: diffuse only, so strip lights and moment lights never glare off the print
+    const mm = new THREE.MeshLambertMaterial({
       map: texture, emissiveMap: dead ? null : texture, emissive: new THREE.Color(1, 1, 1), emissiveIntensity: dead ? 0 : 0.3,
-      roughness: dead ? 0.95 : 0.58, metalness: 0, transparent: dead, opacity: dead ? 0.42 : 1, alphaTest: 0.02,
+      transparent: dead, opacity: dead ? 0.42 : 1, alphaTest: 0.02,
     })
     if (dead)
       mm.onBeforeCompile = (sh) => {
@@ -157,7 +158,7 @@ function MomentView({ m, texture }: { m: Moment; texture: THREE.Texture }) {
     return mm
   }, [texture, dead])
   const mount = useMemo(
-    () => new THREE.MeshStandardMaterial({ color: dead ? '#2a2c2f' : m.item.reviewHuman ? '#e8dcc4' : '#d9cfbd', roughness: 0.85, metalness: 0, transparent: dead, opacity: dead ? 0.35 : 1 }),
+    () => new THREE.MeshLambertMaterial({ color: dead ? '#2a2c2f' : m.item.reviewHuman ? '#e8dcc4' : '#d9cfbd', transparent: dead, opacity: dead ? 0.35 : 1 }),
     [dead, m.item.reviewHuman],
   )
   const q = m.quat
@@ -167,7 +168,7 @@ function MomentView({ m, texture }: { m: Moment; texture: THREE.Texture }) {
     const st = useStore.getState()
     const t = st.selected === m.index ? 2 : st.hovered === m.index ? 1 : 0
     h.current += (t - h.current) * (1 - Math.exp(-dt * 5))
-    mat.emissiveIntensity = dead ? 0 : ((m.item.kind === 'output' ? 0.3 : 0.26) + Math.min(1, h.current) * 0.1) * motion.exposure
+    mat.emissiveIntensity = dead ? 0 : ((m.item.kind === 'output' ? 0.42 : 0.38) + Math.min(1, h.current) * 0.12) * motion.exposure
   })
   const over = (e: ThreeEvent<PointerEvent>) => {
     e.stopPropagation()
