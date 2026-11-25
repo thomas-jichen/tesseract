@@ -10,6 +10,7 @@ import { fisheye } from './Effects'
 
 const FOV = 78 // wide, with only a whisper of lens curvature
 const FOCUS_FOV = 58
+const MAX_ZOOM = 1.45 // widest view the zoom allows
 
 // Weightless. Scroll: through time. Drag: look around. Pinch / ⌘-scroll / +−: zoom. Shift-drag or two-finger swipe: slide through the lattice.
 export function TessRig({ tess }: { tess: Tess }) {
@@ -22,7 +23,7 @@ export function TessRig({ tess }: { tess: Tess }) {
     mode: 'none' as 'none' | 'look' | 'slide',
     x: 0, y: 0, moved: 0,
     yaw: 0, pitch: 0, yawV: 0, pitchV: 0,
-    zoom: 1, zoomT: 1,
+    zoom: MAX_ZOOM, zoomT: MAX_ZOOM, // start all the way zoomed out
     off: new THREE.Vector3(), vel: new THREE.Vector3(),
   })
   const sm = useRef({ px: 0, py: 0 })
@@ -47,7 +48,7 @@ export function TessRig({ tess }: { tess: Tess }) {
       } else motion.overscroll = Math.max(0, motion.overscroll - 0.02)
       motion.target = Math.max(minT, motion.target)
     }
-    const zoomBy = (f: number) => { c.zoomT = THREE.MathUtils.clamp(c.zoomT * f, 0.3, 1.45) }
+    const zoomBy = (f: number) => { c.zoomT = THREE.MathUtils.clamp(c.zoomT * f, 0.3, MAX_ZOOM) }
     const onWheel = (e: WheelEvent) => {
       e.preventDefault()
       if (e.ctrlKey || e.metaKey || e.altKey) { zoomBy(Math.exp(e.deltaY * 0.006)); return } // pinch on trackpads arrives as ctrl+wheel
