@@ -26,3 +26,6 @@ dist-ssr
 .env
 .env.*
 !.env.example
+
+# originals (only web-sized copies in public/ are shipped)
+inbox/

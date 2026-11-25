@@ -27,10 +27,27 @@ There's no interface: no title, no labels, no launch screen. You fall in and dri
 
 ## What's in it
 
-- **Inputs:** 24 Letterboxd diary films (with watch dates and ratings) and 38 Pinterest saves.
-- **Outputs:** Snow Mountain Lake House (architecture model, photos and `.glb`), a hand-cut batarang (2022), the Batarang 3D Art Final (`.glb`), and anything dropped into the project folders (below).
-- **Tracks:** each medium has its own strand bundle through time. Films and pins ride the upper threads; architecture, objects, 3D, projects, web, photos and cooking ride the lower ones. Each track's strands take the colours of the moments it carries.
-- **Lineage:** explicit links (e.g. Batarang 3D ← *The Dark Knight*, *Iron Man*, the 2022 batarang) are bright gold. Fainter amber "echoes" link each thing I made to the earlier saves whose colours most resemble it. Echoes are inferred, not claimed.
+- **Inputs:** 24 Letterboxd diary films (with watch dates and ratings), 38 Pinterest saves, and the places and works I went to see (Warhol, Van Gogh, the Evangelion exhibition, Google).
+- **Outputs:** Snow Mountain Lake House (architecture model, photos and `.glb`), the Batarang 3D Art Final (`.glb`), and a life archive of 71 photos read one by one (`scripts/manifest.mjs`):
+  - football: from a ball at one, to the Main Quad, to #29 under the lights
+  - photography: Shanghai, Xi'an, NYC
+  - physical projects: gauntlet sketch → armour → arc reactor → the gauntlet worn; cloud chamber; 3D prints
+  - science: asteroid frames → poster → PHYS073
+  - code and hackathons, art, cubing, food
+- **Timeline:** 1998 → now. Long empty stretches fold down.
+- **Threads:** the four bundles around your path each split into up to four threads, one per kind of thing.
+  - Upper corners (what went in): films, pins, seen, roots, play, food.
+  - Lower corners (what came out): photography, art, architecture, physical projects, football, science, code.
+  - Each thread's strands take the colours of the moments it carries. Inward threads hang on the faces you drift past; outward ones hang just beyond, seen through the lattice.
+- **Lineage:** stated links are bright gold, read from the work itself. For example:
+  - an old Pudong photo → every Pearl Tower photo I later shot
+  - gauntlet sketch → gauntlet
+  - bulldog kalimba → bulldog logo → shady.Hacks
+  - Warhol → pink portrait → on the wall
+  - Unit-01 figure → exhibition → statue → *Evangelion*
+  - Batarang 3D ← *The Dark Knight*, *Iron Man*, the 2022 batarang
+
+  Things with no stated lineage get one faint amber "echo" to the earlier save whose colours most resemble them. Echoes are inferred, not claimed.
 - **Other selves:** NASA EMU astronauts float translucently in the open space you drift through, ahead of you and behind you.
 
 ## Rendering
@@ -38,6 +55,7 @@ There's no interface: no title, no labels, no launch screen. You fall in and dri
 - **The lattice:** an infinite, irregular three-axis lattice of strand bundles: rectangular cross-sections, off-grid offsets, sub-bundles, missing bundles and frayed breaks.
   - It is tiled around the camera in the vertex shader.
   - The break pattern repeats exactly every tile, so nothing pops when the tiling wraps.
+- **Paper pass:** runs progressively after the scene appears, so it never blocks the first frame.
 - **Materials:** physically based strands, injected into three.js's `MeshStandardMaterial` via `onBeforeCompile`.
   - About a third are near-mirror silver metal; the rest are lacquer, paper and wood, each with its own roughness.
   - They reflect a studio environment built from drei `Lightformer` strip lights.
@@ -66,7 +84,7 @@ npm run deploy         # build for /tesseract/ and publish to GitHub Pages (gh-p
 
 ### Add things
 
-Drop images into a folder under `public/items/`, named `YYYY-MM_Title.jpg` (jpg / png / heic / webp, any size):
+Drop originals into a folder under `inbox/` (git-ignored, never shipped), named `YYYY-MM_Title.jpg` (jpg / png / heic / webp, any size). Web-sized copies are written to `public/items/<folder>/`. The life archive in `inbox/new/` is described image by image in `scripts/manifest.mjs`, which holds each image's thread, title, capture date and lineage.
 
 | Folder | Becomes |
 |---|---|
@@ -78,7 +96,7 @@ Drop images into a folder under `public/items/`, named `YYYY-MM_Title.jpg` (jpg 
 Then:
 
 ```bash
-node scripts/build-items.mjs   # web-sized copies → <folder>/_web/, writes src/data/items.json
+node scripts/build-items.mjs   # web-sized copies → public/items/<folder>/, writes src/data/items.json
 ```
 
 Lineage lives in the `LINKS` table in `scripts/build-items.mjs` (`output id → [input ids]`).
@@ -119,6 +137,7 @@ public/
 - [ ] **Capy:** importers (Instagram / TikTok / X saved posts, YouTube likes, Beli) as PRs.
 - [ ] Real lineage links in place of colour echoes (which pins and films fed which project).
 - [ ] Real Pinterest save dates. Pinterest doesn't expose them, so they're currently spread evenly from Jun 2025 to Nov 2026.
+- [ ] Confirm the dates of a few scanned or forwarded childhood photos (marked `approx` in the manifest).
 - [ ] Journal and notes (Notes / Notion / Docs) as written moments, checked by Pangram.
 - [ ] `TASTE.md` export: a machine-readable taste profile where every principle cites the saves and works behind it, so agents can design in my taste.
 - [ ] The autonomous brain: saves and reviews flow in on their own, and the tesseract grows. Then open it so anyone can fall into theirs.

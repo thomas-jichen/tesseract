@@ -3,7 +3,7 @@ import * as THREE from 'three'
 import { Canvas, events } from '@react-three/fiber'
 import rawItems from './data/items.json'
 import { buildTesseract, type Item, type Tess } from './lib/lattice'
-import { loadAll, type Loaded } from './loader'
+import { loadAll, paperizeAll, type Loaded } from './loader'
 import { useStore } from './lib/store'
 import { Astronauts, Lattice, Moments, SelectedModel, Threads } from './scene/Tess'
 import { Lighting } from './scene/Lighting'
@@ -16,7 +16,10 @@ export default function App() {
   const [loaded, setLoaded] = useState<Loaded | null>(null)
 
   useEffect(() => {
-    loadAll(items, useStore.getState().setProgress, 8).then(setLoaded)
+    loadAll(items, useStore.getState().setProgress, 8).then((l) => {
+      setLoaded(l)
+      setTimeout(() => paperizeAll(l.textures), 1500) // after the fall begins
+    })
   }, [])
 
   const tess: Tess | null = useMemo(() => {

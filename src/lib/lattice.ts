@@ -238,18 +238,32 @@ export function buildTesseract(items: Item[], palettes: Map<string, THREE.Color[
   //    Inputs ride the upper threads, things he made ride the lower ones.
   const h = P / 2
   type Lane = { track: [number, number]; hang: [number, number] }
+  // Four corner bundles around the path, each split into up to four threads — one per kind of thing.
+  // Inward lanes hang on the faces you drift past; outward lanes hang just beyond, seen through the lattice.
+  const UR: [number, number] = [h, h], UL: [number, number] = [-h, h], LL: [number, number] = [-h, -h], LR: [number, number] = [h, -h]
+  const lane = (track: [number, number], hx: number, hy: number): Lane => ({ track, hang: [hx, hy] })
   const TRACKS: Record<string, Lane[]> = {
-    film: [{ track: [h, h], hang: [0, -1] }, { track: [h, h], hang: [-1, 0] }],
-    pin: [{ track: [-h, h], hang: [0, -1] }, { track: [-h, h], hang: [1, 0] }],
-    architecture: [{ track: [-h, -h], hang: [0, 1] }],
-    object: [{ track: [-h, -h], hang: [1, 0] }],
-    '3d': [{ track: [h, -h], hang: [0, 1] }],
-    cooking: [{ track: [h, -h], hang: [-1, 0] }],
-    project: [{ track: [-h, -h], hang: [0, 1] }, { track: [-h, -h], hang: [1, 0] }],
-    web: [{ track: [h, -h], hang: [-1, 0] }],
-    photo: [{ track: [-h, h], hang: [1, 0] }],
+    // what went in (upper)
+    film: [lane(UR, 0, -1), lane(UR, -1, 0)],
+    pin: [lane(UL, 0, -1), lane(UL, 1, 0)],
+    seen: [lane(UR, 1, 0)],
+    life: [lane(UR, 0, 1)],
+    play: [lane(UL, -1, 0)],
+    cooking: [lane(UL, 0, 1)],
+    // what came out (lower)
+    photo: [lane(LL, 0, 1), lane(LL, 1, 0)],
+    art: [lane(LL, -1, 0)],
+    architecture: [lane(LL, 0, -1)],
+    object: [lane(LR, 0, 1)],
+    project: [lane(LR, 0, 1)],
+    football: [lane(LR, -1, 0)],
+    science: [lane(LR, 1, 0)],
+    code: [lane(LR, 0, -1)],
+    web: [lane(LR, 0, -1)],
+    '3d': [lane(LR, 0, -1)],
   }
-  const trackOf = (it: Item): Lane[] => TRACKS[it.medium] ?? [{ track: [-h, -h], hang: [1, 0] }]
+  const THREAD_OFF = 1.15 // a thread sits just off its corner, toward the side it hangs on
+  const trackOf = (it: Item): Lane[] => TRACKS[it.medium] ?? [lane(LR, 0, 1)]
   const sliceZ = (sl: number) => -(sl + 1) * P
   const path = (t: number) => new THREE.Vector3(Math.sin(t * 0.23) * 0.9 + Math.sin(t * 0.09) * 0.4, Math.sin(t * 0.17 + 1.2) * 0.8, sliceZ(t))
   const moments: Moment[] = []
@@ -271,16 +285,19 @@ export function buildTesseract(items: Item[], palettes: Map<string, THREE.Color[
       let hh = w / a
       if (hh > maxS) { hh = maxS; w = hh * a }
       // each moment hangs from its thread into the open face of the lattice, turned toward you
-      const [tx, ty] = lane.track
+      const [cx, cy] = lane.track
       const [hx, hy] = lane.hang
+      const tx = cx + hx * THREAD_OFF
+      const ty = cy + hy * THREAD_OFF
       const extent = hy !== 0 ? hh : w
-      const reach = B / 2 + 0.45 + extent / 2
+      const reach = 0.9 + 0.45 + extent / 2
       const pos = new THREE.Vector3(tx + hx * reach, ty + hy * reach, sliceZ(sl) + (n - (perSlot - 1) / 2) * 4.4)
-      const face = hy !== 0 ? new THREE.Vector3(-Math.sign(tx), 0, 0) : new THREE.Vector3(0, -Math.sign(ty), 0)
-      const normal = face.multiplyScalar(0.8).add(new THREE.Vector3(0, 0, 0.62)).normalize()
+      const outward = hx * cx + hy * cy > 0
+      const face = hy !== 0 ? new THREE.Vector3(-Math.sign(cx), 0, 0) : new THREE.Vector3(0, -Math.sign(cy), 0)
+      const normal = face.multiplyScalar(outward ? 0.6 : 0.8).add(new THREE.Vector3(outward ? -hx * 0.45 : 0, outward ? -hy * 0.45 : 0, 0.62)).normalize()
       const quat = new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 0, 1), normal)
       const up = new THREE.Vector3(0, 1, 0).applyQuaternion(quat)
-      moments.push({ index: moments.length, item, slice: sl, pos, normal, w, h: hh, track: lane.track, quat, up })
+      moments.push({ index: moments.length, item, slice: sl, pos, normal, w, h: hh, track: [tx, ty], quat, up })
       break
     }
   }
@@ -302,9 +319,9 @@ export function buildTesseract(items: Item[], palettes: Map<string, THREE.Color[
     const [tx, ty] = k.split(',').map(Number)
     ms.sort((a, b) => b.pos.z - a.pos.z)
     const z0 = ms[0].pos.z + P * 1.5
-    const tw = 2.6 + rand() * 1.6
-    const th = 2.2 + rand() * 1.6
-    for (let n = 0; n < 170; n++) {
+    const tw = 1.4 + rand() * 0.8
+    const th = 1.3 + rand() * 0.8
+    for (let n = 0; n < 120; n++) {
       const o1 = (rand() - 0.5) * tw
       const o2 = (rand() - 0.5) * th
       const w1 = 0.02 + rand() * rand() * 0.22
@@ -356,11 +373,12 @@ export function buildTesseract(items: Item[], palettes: Map<string, THREE.Color[
   for (const m of moments) {
     if (m.item.kind !== 'output' || isDead(m.item)) continue
     const have = new Set(links.filter((l) => l.to === m.index).map((l) => l.from))
+    if (have.size) continue
     const cands = moments
       .filter((o) => o.item.kind === 'input' && !isDead(o.item) && o.item.date <= m.item.date && !have.has(o.index))
       .map((o) => ({ o, d: sim(pal(m.item.id), pal(o.item.id)) }))
       .sort((a, b) => a.d - b.d)
-      .slice(0, 3)
+      .slice(0, 1)
     for (const c of cands) links.push({ from: c.o.index, to: m.index, strength: 0.45 })
   }
 

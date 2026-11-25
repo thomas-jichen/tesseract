@@ -227,6 +227,7 @@ function Thread({ tess, from, to, strength }: { tess: Tess; from: number; to: nu
   const t0 = useRef(0)
   const buf = useMemo(() => new Float32Array((SEG + 1) * 3), [])
   const phase = useMemo(() => Math.random(), [])
+  const inited = useRef(false)
   useFrame((state, dt) => {
     const st = useStore.getState()
     const f = st.selected ?? st.hovered
@@ -236,15 +237,19 @@ function Thread({ tess, from, to, strength }: { tess: Tess; from: number; to: nu
     const k = act.current
     const t = state.clock.elapsedTime - t0.current
     const amp = k * 0.18 * Math.exp(-t * 1.3) + 0.015
-    for (let i = 0; i <= SEG; i++) {
+    const still = k < 0.002 && inited.current
+    if (!still) for (let i = 0; i <= SEG; i++) {
       const u = i / SEG
       const o = Math.sin(Math.PI * u) * Math.sin(t * 30 + u * 5 + from) * amp
       buf[i * 3] = pts[i].x + perp.x * o
       buf[i * 3 + 1] = pts[i].y + perp.y * o
       buf[i * 3 + 2] = pts[i].z + perp.z * o
     }
-    base.current?.geometry.setPositions(buf)
-    pulse.current?.geometry.setPositions(buf)
+    if (!still) {
+      base.current?.geometry.setPositions(buf)
+      pulse.current?.geometry.setPositions(buf)
+      inited.current = true
+    }
     const e = U.uExposure.value
     if (base.current) {
       base.current.material.opacity = Math.min(1, 0.35 + strength * 0.6 + k * 0.5) * e

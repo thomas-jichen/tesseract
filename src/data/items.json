@@ -1,5 +1,95 @@
 [
  {
+  "id": "new:d4483e7740f69361d2ed05df9ba14761",
+  "kind": "input",
+  "medium": "life",
+  "title": "Pudong, an old photograph",
+  "date": "1998-01",
+  "image": "new/d4483e7740f69361d2ed05df9ba14761.jpg",
+  "approx": true
+ },
+ {
+  "id": "new:010f1e07240e059be08df3f4088417ab2d66c0c7d0",
+  "kind": "input",
+  "medium": "football",
+  "title": "First ball",
+  "date": "2008-12",
+  "image": "new/010f1e07240e059be08df3f4088417ab2d66c0c7d0.jpg"
+ },
+ {
+  "id": "new:IMG_4694",
+  "kind": "input",
+  "medium": "life",
+  "title": "Orange coat",
+  "date": "2010-01",
+  "image": "new/IMG_4694.jpg",
+  "approx": true
+ },
+ {
+  "id": "new:IMG_0277",
+  "kind": "input",
+  "medium": "life",
+  "title": "Covered in trains",
+  "date": "2011-08",
+  "image": "new/IMG_0277.jpg"
+ },
+ {
+  "id": "new:ff6f5f7adafafcd6a1934ba3f7be68ec",
+  "kind": "input",
+  "medium": "life",
+  "title": "First certificate",
+  "date": "2016-06",
+  "image": "new/ff6f5f7adafafcd6a1934ba3f7be68ec.jpg",
+  "approx": true
+ },
+ {
+  "id": "new:IMG_7630",
+  "kind": "output",
+  "medium": "football",
+  "title": "Main Quad, Stanford",
+  "date": "2017-07",
+  "image": "new/IMG_7630.jpg",
+  "influences": [
+   "new:010f1e07240e059be08df3f4088417ab2d66c0c7d0"
+  ]
+ },
+ {
+  "id": "new:IMG_2998",
+  "kind": "output",
+  "medium": "code",
+  "title": "First desk",
+  "date": "2021-04",
+  "image": "new/IMG_2998.jpg"
+ },
+ {
+  "id": "new:01ec4ff1e180d5a3d81e6949f322836faa3cea2f69",
+  "kind": "input",
+  "medium": "play",
+  "title": "Switch",
+  "date": "2021-07",
+  "image": "new/01ec4ff1e180d5a3d81e6949f322836faa3cea2f69.jpg"
+ },
+ {
+  "id": "new:IMG_4934",
+  "kind": "output",
+  "medium": "code",
+  "title": "Desk, Batman on the wall",
+  "date": "2022-03",
+  "image": "new/IMG_4934.jpg",
+  "influences": [
+   "new:IMG_2998",
+   "film:the-dark-knight"
+  ]
+ },
+ {
+  "id": "new:IMG_5491",
+  "kind": "input",
+  "medium": "seen",
+  "title": "Googleplex",
+  "date": "2022-07",
+  "image": "new/IMG_5491.jpg"
+ },
+ {
   "kind": "output",
   "id": "batarang-2022",
   "title": "Batarang, cut by hand",
@@ -7,6 +97,519 @@
   "date": "2022-09",
   "image": "made/IMG_6314.jpg",
   "influences": []
+ },
+ {
+  "id": "new:IMG_6452",
+  "kind": "output",
+  "medium": "art",
+  "title": "Hung on the wall",
+  "date": "2022-10",
+  "image": "new/IMG_6452.jpg",
+  "influences": [
+   "new:IMG_6976"
+  ]
+ },
+ {
+  "id": "new:IMG_6813",
+  "kind": "input",
+  "medium": "seen",
+  "title": "Warhol, Skull",
+  "date": "2022-11",
+  "image": "new/IMG_6813.jpg"
+ },
+ {
+  "id": "new:IMG_6837",
+  "kind": "output",
+  "medium": "art",
+  "title": "Collage class",
+  "date": "2022-11",
+  "image": "new/IMG_6837.jpg"
+ },
+ {
+  "id": "new:IMG_6879",
+  "kind": "output",
+  "medium": "object",
+  "title": "Gauntlet — first sketch",
+  "date": "2022-11",
+  "image": "new/IMG_6879.jpg",
+  "influences": [
+   "batarang-2022",
+   "film:the-dark-knight"
+  ]
+ },
+ {
+  "id": "new:IMG_6959",
+  "kind": "output",
+  "medium": "photo",
+  "title": "Light painting",
+  "date": "2022-11",
+  "image": "new/IMG_6959.jpg"
+ },
+ {
+  "id": "new:IMG_6976",
+  "kind": "output",
+  "medium": "art",
+  "title": "Pink portrait",
+  "date": "2022-11",
+  "image": "new/IMG_6976.jpg",
+  "influences": [
+   "new:IMG_6813"
+  ]
+ },
+ {
+  "id": "new:IMG_7306",
+  "kind": "input",
+  "medium": "cooking",
+  "title": "Steak, somewhere good",
+  "date": "2022-12",
+  "image": "new/IMG_7306.jpg"
+ },
+ {
+  "id": "new:IMG_0470",
+  "kind": "output",
+  "medium": "life",
+  "title": "Journal — “no distractions”",
+  "date": "2023-01",
+  "image": "new/IMG_0470.jpg"
+ },
+ {
+  "id": "new:IMG_5675",
+  "kind": "output",
+  "medium": "object",
+  "title": "Shield, assembled",
+  "date": "2023-01",
+  "image": "new/IMG_5675.jpg"
+ },
+ {
+  "id": "new:IMG_7829",
+  "kind": "input",
+  "medium": "play",
+  "title": "Unit-01, on the desk",
+  "date": "2023-01",
+  "image": "new/IMG_7829.jpg"
+ },
+ {
+  "id": "new:IMG_8232",
+  "kind": "input",
+  "medium": "play",
+  "title": "Kalimba, bulldog",
+  "date": "2023-01",
+  "image": "new/IMG_8232.jpg"
+ },
+ {
+  "id": "new:IMG_8816",
+  "kind": "output",
+  "medium": "play",
+  "title": "Cubing, round one",
+  "date": "2023-02",
+  "image": "new/IMG_8816.jpg"
+ },
+ {
+  "id": "new:IMG_9258",
+  "kind": "output",
+  "medium": "play",
+  "title": "Cubing, finals",
+  "date": "2023-02",
+  "image": "new/IMG_9258.jpg"
+ },
+ {
+  "id": "new:IMG_9901",
+  "kind": "output",
+  "medium": "science",
+  "title": "Medals, Altoona",
+  "date": "2023-02",
+  "image": "new/IMG_9901.jpg"
+ },
+ {
+  "id": "new:70753605250__29C0D2ED-B283-4D0B-A2A8-4E417FB1C62D",
+  "kind": "output",
+  "medium": "code",
+  "title": "Late code",
+  "date": "2023-06",
+  "image": "new/70753605250__29C0D2ED-B283-4D0B-A2A8-4E417FB1C62D.jpg"
+ },
+ {
+  "id": "new:IMG_0159",
+  "kind": "output",
+  "medium": "photo",
+  "title": "D600 in my lap",
+  "date": "2023-06",
+  "image": "new/IMG_0159.jpg"
+ },
+ {
+  "id": "new:IMG_0502",
+  "kind": "output",
+  "medium": "photo",
+  "title": "Bell Tower, Xi’an",
+  "date": "2023-06",
+  "image": "new/IMG_0502.jpg"
+ },
+ {
+  "id": "new:ef3155391664483759832877250b8e75",
+  "kind": "output",
+  "medium": "photo",
+  "title": "Behind the camera",
+  "date": "2023-07",
+  "image": "new/ef3155391664483759832877250b8e75.jpg"
+ },
+ {
+  "id": "new:DSC_7824",
+  "kind": "output",
+  "medium": "photo",
+  "title": "Pearl Tower, out of focus",
+  "date": "2023-08",
+  "image": "new/DSC_7824.jpg",
+  "influences": [
+   "new:d4483e7740f69361d2ed05df9ba14761"
+  ]
+ },
+ {
+  "id": "new:IMG_1420",
+  "kind": "output",
+  "medium": "art",
+  "title": "Bulldog, low-poly",
+  "date": "2024-01",
+  "image": "new/IMG_1420.jpg",
+  "influences": [
+   "new:IMG_8232"
+  ]
+ },
+ {
+  "id": "new:IMG_2867",
+  "kind": "output",
+  "medium": "object",
+  "title": "CD spinner, v1",
+  "date": "2024-01",
+  "image": "new/IMG_2867.jpg"
+ },
+ {
+  "id": "new:DSC_9499",
+  "kind": "output",
+  "medium": "photo",
+  "title": "The Edge",
+  "date": "2024-03",
+  "image": "new/DSC_9499.jpg"
+ },
+ {
+  "id": "new:IMG_3905",
+  "kind": "output",
+  "medium": "object",
+  "title": "Arc reactor",
+  "date": "2024-05",
+  "image": "new/IMG_3905.jpg",
+  "influences": [
+   "film:iron-man-2008",
+   "new:IMG_5675"
+  ]
+ },
+ {
+  "id": "new:IMG_3906",
+  "kind": "output",
+  "medium": "object",
+  "title": "Armor shells",
+  "date": "2024-05",
+  "image": "new/IMG_3906.jpg"
+ },
+ {
+  "id": "new:IMG_1548",
+  "kind": "output",
+  "medium": "object",
+  "title": "Gauntlet, worn",
+  "date": "2024-06",
+  "image": "new/IMG_1548.jpg",
+  "influences": [
+   "new:IMG_6879",
+   "new:IMG_3906",
+   "new:IMG_4084"
+  ]
+ },
+ {
+  "id": "new:IMG_1549",
+  "kind": "output",
+  "medium": "object",
+  "title": "Gauntlet, forearm",
+  "date": "2024-06",
+  "image": "new/IMG_1549.jpg"
+ },
+ {
+  "id": "new:IMG_4084",
+  "kind": "output",
+  "medium": "object",
+  "title": "Muscle sensors",
+  "date": "2024-06",
+  "image": "new/IMG_4084.jpg"
+ },
+ {
+  "id": "new:IMG_4532",
+  "kind": "output",
+  "medium": "code",
+  "title": "Whiteboard, (B, 1, N)",
+  "date": "2024-07",
+  "image": "new/IMG_4532.jpg",
+  "influences": [
+   "new:IMG_5491"
+  ]
+ },
+ {
+  "id": "new:b8f4a2b8644e22a9b9d704e868deb0dc",
+  "kind": "output",
+  "medium": "photo",
+  "title": "Testing a gimbal",
+  "date": "2024-07",
+  "image": "new/b8f4a2b8644e22a9b9d704e868deb0dc.jpg"
+ },
+ {
+  "id": "new:25c5c7803145157b318e08feecf582d5",
+  "kind": "input",
+  "medium": "seen",
+  "title": "Unit-01, life-size",
+  "date": "2024-08",
+  "image": "new/25c5c7803145157b318e08feecf582d5.jpg",
+  "influences": [
+   "new:IMG_7829"
+  ]
+ },
+ {
+  "id": "new:DSC_2018",
+  "kind": "output",
+  "medium": "football",
+  "title": "#29",
+  "date": "2024-08",
+  "image": "new/DSC_2018.jpg"
+ },
+ {
+  "id": "new:DSC_3530",
+  "kind": "output",
+  "medium": "photo",
+  "title": "Lujiazui at night",
+  "date": "2024-08",
+  "image": "new/DSC_3530.jpg",
+  "influences": [
+   "new:d4483e7740f69361d2ed05df9ba14761",
+   "new:IMG_0502"
+  ]
+ },
+ {
+  "id": "new:IMG_5082",
+  "kind": "input",
+  "medium": "seen",
+  "title": "Evangelion, the drawings",
+  "date": "2024-08",
+  "image": "new/IMG_5082.jpg",
+  "influences": [
+   "new:IMG_7829"
+  ]
+ },
+ {
+  "id": "new:IMG_5101",
+  "kind": "output",
+  "medium": "photo",
+  "title": "Rotunda",
+  "date": "2024-08",
+  "image": "new/IMG_5101.jpg"
+ },
+ {
+  "id": "new:IMG_5205",
+  "kind": "output",
+  "medium": "football",
+  "title": "Designing the Shady Side kit",
+  "date": "2024-08",
+  "image": "new/IMG_5205.jpg"
+ },
+ {
+  "id": "new:IMG_5220",
+  "kind": "output",
+  "medium": "football",
+  "title": "Recovery",
+  "date": "2024-08",
+  "image": "new/IMG_5220.jpg"
+ },
+ {
+  "id": "new:IMG_5439",
+  "kind": "output",
+  "medium": "cooking",
+  "title": "Matcha",
+  "date": "2024-10",
+  "image": "new/IMG_5439.jpg",
+  "influences": [
+   "film:chef"
+  ]
+ },
+ {
+  "id": "new:LastDay-27",
+  "kind": "output",
+  "medium": "football",
+  "title": "Last day",
+  "date": "2024-10",
+  "image": "new/LastDay-27.jpg"
+ },
+ {
+  "id": "new:_OZ85324",
+  "kind": "output",
+  "medium": "football",
+  "title": "Night game",
+  "date": "2024-10",
+  "image": "new/_OZ85324.jpg",
+  "influences": [
+   "new:IMG_7630",
+   "new:IMG_5205"
+  ]
+ },
+ {
+  "id": "new:soccer",
+  "kind": "output",
+  "medium": "football",
+  "title": "Celebration",
+  "date": "2024-10",
+  "image": "new/soccer.jpg",
+  "influences": [
+   "new:IMG_5220"
+  ]
+ },
+ {
+  "id": "new:IMG_5623",
+  "kind": "output",
+  "medium": "science",
+  "title": "Asteroid frames",
+  "date": "2024-11",
+  "image": "new/IMG_5623.jpg"
+ },
+ {
+  "id": "new:IMG_5770",
+  "kind": "output",
+  "medium": "science",
+  "title": "Cloud chamber, glowing",
+  "date": "2024-12",
+  "image": "new/IMG_5770.jpg",
+  "influences": [
+   "new:IMG_5833"
+  ]
+ },
+ {
+  "id": "new:IMG_5833",
+  "kind": "output",
+  "medium": "science",
+  "title": "Cloud chamber, bench",
+  "date": "2024-12",
+  "image": "new/IMG_5833.jpg"
+ },
+ {
+  "id": "new:IMG_5951",
+  "kind": "output",
+  "medium": "code",
+  "title": "Do you want to build a snowman?",
+  "date": "2024-12",
+  "image": "new/IMG_5951.jpg",
+  "influences": [
+   "new:70753605250__29C0D2ED-B283-4D0B-A2A8-4E417FB1C62D"
+  ]
+ },
+ {
+  "id": "new:DSC_4748-2",
+  "kind": "output",
+  "medium": "science",
+  "title": "Cloud chamber, close",
+  "date": "2025-01",
+  "image": "new/DSC_4748-2.jpg",
+  "influences": [
+   "new:IMG_5770",
+   "new:IMG_0159"
+  ]
+ },
+ {
+  "id": "new:IMG_6171",
+  "kind": "output",
+  "medium": "object",
+  "title": "CD spinner, v2",
+  "date": "2025-01",
+  "image": "new/IMG_6171.jpg",
+  "influences": [
+   "new:IMG_2867"
+  ]
+ },
+ {
+  "id": "new:IMG_6218",
+  "kind": "output",
+  "medium": "object",
+  "title": "Yellow prints",
+  "date": "2025-01",
+  "image": "new/IMG_6218.jpg"
+ },
+ {
+  "id": "new:IMG_1687",
+  "kind": "output",
+  "medium": "science",
+  "title": "Mirror maze",
+  "date": "2025-02",
+  "image": "new/IMG_1687.jpg"
+ },
+ {
+  "id": "new:IMG_6464",
+  "kind": "output",
+  "medium": "object",
+  "title": "1989 keychains",
+  "date": "2025-02",
+  "image": "new/IMG_6464.jpg"
+ },
+ {
+  "id": "new:IMG_6501",
+  "kind": "output",
+  "medium": "object",
+  "title": "? block hooks",
+  "date": "2025-02",
+  "image": "new/IMG_6501.jpg"
+ },
+ {
+  "id": "new:DSC_5596",
+  "kind": "output",
+  "medium": "code",
+  "title": "shady.Hacks 2025",
+  "date": "2025-04",
+  "image": "new/DSC_5596.jpg",
+  "influences": [
+   "new:IMG_1420"
+  ]
+ },
+ {
+  "id": "new:IMG_0899",
+  "kind": "output",
+  "medium": "science",
+  "title": "Reverberation mapping",
+  "date": "2025-04",
+  "image": "new/IMG_0899.jpg",
+  "influences": [
+   "new:IMG_5623"
+  ]
+ },
+ {
+  "id": "new:IMG_6836",
+  "kind": "output",
+  "medium": "object",
+  "title": "Saturn and Vader",
+  "date": "2025-04",
+  "image": "new/IMG_6836.jpg"
+ },
+ {
+  "id": "new:DSC_5657",
+  "kind": "output",
+  "medium": "science",
+  "title": "PHYS073",
+  "date": "2025-05",
+  "image": "new/DSC_5657.jpg",
+  "influences": [
+   "new:IMG_0899"
+  ]
+ },
+ {
+  "id": "new:DSC_6092",
+  "kind": "output",
+  "medium": "science",
+  "title": "PHYS073, suited",
+  "date": "2025-05",
+  "image": "new/DSC_6092.jpg",
+  "influences": [
+   "new:IMG_0899"
+  ]
  },
  {
   "id": "pin:p36",
@@ -27,6 +630,33 @@
   "image": "pins/p37.jpg"
  },
  {
+  "id": "new:DSC_0957",
+  "kind": "output",
+  "medium": "photo",
+  "title": "Pearl Tower, pink",
+  "date": "2025-06",
+  "image": "new/DSC_0957.jpg",
+  "influences": [
+   "new:d4483e7740f69361d2ed05df9ba14761"
+  ]
+ },
+ {
+  "id": "new:DSC_1034",
+  "kind": "output",
+  "medium": "photo",
+  "title": "mr willis",
+  "date": "2025-06",
+  "image": "new/DSC_1034.jpg"
+ },
+ {
+  "id": "new:P1000467",
+  "kind": "output",
+  "medium": "photo",
+  "title": "Tripod",
+  "date": "2025-06",
+  "image": "new/P1000467.jpg"
+ },
+ {
   "id": "pin:p34",
   "kind": "input",
   "medium": "pin",
@@ -43,6 +673,34 @@
   "date": "2025-07",
   "approx": true,
   "image": "pins/p35.jpg"
+ },
+ {
+  "id": "new:DSC_1380",
+  "kind": "output",
+  "medium": "photo",
+  "title": "Framed",
+  "date": "2025-07",
+  "image": "new/DSC_1380.jpg",
+  "influences": [
+   "new:d4483e7740f69361d2ed05df9ba14761",
+   "new:DSC_7824"
+  ]
+ },
+ {
+  "id": "new:DSC_1395",
+  "kind": "input",
+  "medium": "seen",
+  "title": "Van Gogh, and a phone",
+  "date": "2025-07",
+  "image": "new/DSC_1395.jpg"
+ },
+ {
+  "id": "new:DSC_1410",
+  "kind": "output",
+  "medium": "photo",
+  "title": "Rain, iced coffee",
+  "date": "2025-07",
+  "image": "new/DSC_1410.jpg"
  },
  {
   "id": "pin:p32",
@@ -285,7 +943,11 @@
   "title": "Evangelion: 1.0 You Are (Not) Alone",
   "date": "2026-03",
   "rating": 7,
-  "image": "films/evangelion-10-you-are-not-alone.jpg"
+  "image": "films/evangelion-10-you-are-not-alone.jpg",
+  "influences": [
+   "new:25c5c7803145157b318e08feecf582d5",
+   "new:IMG_5082"
+  ]
  },
  {
   "id": "film:iron-man-2008",

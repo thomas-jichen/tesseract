@@ -70,23 +70,22 @@ export async function loadAll(items: Item[], onProgress: (p: number) => void, ma
         }),
     ),
   )
-  // Paper Shaders: print every moment onto paper (sequential — one offscreen mount, reused)
-  if (!location.search.includes('nopaper')) {
-    let n = 0
-    for (const it of items) {
-      const t = textures.get(it.id)
-      if (!t) continue
-      const c = await paperize(t.image as HTMLImageElement, (n++ * 0.6180339) % 1)
-      if (!c) continue
-      const pt = new THREE.CanvasTexture(c)
-      pt.colorSpace = THREE.SRGBColorSpace
-      pt.anisotropy = maxAniso
-      pt.generateMipmaps = true
-      pt.minFilter = THREE.LinearMipmapLinearFilter
-      textures.set(it.id, pt)
-    }
-    disposePaper()
-  }
   const filler = [0, 1, 2, 3, 4].map(fillerTexture)
   return { textures, palettes, aspects, filler }
+}
+
+// Paper Shaders, progressively: after the scene is up, re-print each moment onto paper in place
+// (same THREE.Texture object, so every material using it updates by itself).
+export async function paperizeAll(textures: Map<string, THREE.Texture>) {
+  if (location.search.includes('nopaper')) return
+  let n = 0
+  for (const t of textures.values()) {
+    const img = t.image as HTMLImageElement
+    if (!img || !(img instanceof HTMLImageElement)) continue
+    const c = await paperize(img, (n++ * 0.6180339) % 1)
+    if (!c) continue
+    t.image = c
+    t.needsUpdate = true
+  }
+  disposePaper()
 }

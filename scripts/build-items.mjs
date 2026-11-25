@@ -1,6 +1,7 @@
 // Generates src/data/items.json from local assets. Edit the MADE + LINKS tables, then: node scripts/build-items.mjs
 import { readdirSync, writeFileSync, existsSync, readFileSync, mkdirSync } from 'node:fs'
 import { execFileSync } from 'node:child_process'
+import { NEW, NEW_LINKS } from './manifest.mjs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
@@ -61,24 +62,45 @@ pins.forEach((f, i) => {
   const d = new Date(Date.UTC(2026, 10 - back, 1))
   items.push({ id: `pin:${f.replace('.jpg', '')}`, kind: 'input', medium: 'pin', title: 'Saved on Pinterest', date: d.toISOString().slice(0, 7), approx: true, image: `pins/${f}` })
 })
-// Things Thomas made, dropped into folders. Name files  YYYY-MM_Title.jpg  (jpg / png / heic / webp, any size).
-// Originals are left alone; web-sized JPEG copies are written to <folder>/_web/.
-const FOLDERS = { projects: 'project', cook: 'cooking', web: 'web', photo: 'photo' }
-for (const [folder, medium] of Object.entries(FOLDERS)) {
-  const dir = join(root, 'public/items', folder)
-  if (!existsSync(dir)) continue
-  const webDir = join(dir, '_web')
-  if (!existsSync(webDir)) mkdirSync(webDir)
-  for (const f of readdirSync(dir).filter((f) => /\.(jpe?g|png|heic|webp)$/i.test(f)).sort()) {
+// Originals live in inbox/<folder>/ (git-ignored); web-sized JPEG copies are written to public/items/<folder>/.
+const webCopy = (src, folder, base) => {
+  const outDir = join(root, 'public/items', folder)
+  if (!existsSync(outDir)) mkdirSync(outDir, { recursive: true })
+  const out = join(outDir, `${base}.jpg`)
+  if (!existsSync(out)) {
+    try { execFileSync('sips', ['-s', 'format', 'jpeg', '-s', 'formatOptions', '78', '-Z', '1000', src, '--out', out], { stdio: 'ignore' }) } catch { return null }
+  }
+  return `${folder}/${base}.jpg`
+}
+const IMG = /\.(jpe?g|png|heic|webp)$/i
+
+// The life archive, read image by image (scripts/manifest.mjs)
+const newDir = join(root, 'inbox/new')
+if (existsSync(newDir)) {
+  for (const f of readdirSync(newDir).filter((f) => IMG.test(f)).sort()) {
+    const e = NEW[f]
+    if (!e) { console.warn(`  (no manifest entry for inbox/new/${f} — skipped)`); continue }
     const base = f.replace(/\.[^.]+$/, '')
-    const out = join(webDir, `${base}.jpg`)
-    if (!existsSync(out)) {
-      try { execFileSync('sips', ['-s', 'format', 'jpeg', '-s', 'formatOptions', '82', '-Z', '1400', join(dir, f), '--out', out], { stdio: 'ignore' }) } catch { continue }
-    }
+    const image = webCopy(join(newDir, f), 'new', base)
+    if (!image) continue
+    items.push({ id: `new:${base}`, kind: e.k, medium: e.m, title: e.t, date: e.d, image, ...(e.approx ? { approx: true } : {}) })
+  }
+  Object.assign(LINKS, NEW_LINKS)
+}
+
+// Drop-in folders: inbox/<folder>/YYYY-MM_Title.jpg  (jpg / png / heic / webp, any size)
+const FOLDERS = { projects: 'project', cook: 'cooking', web: 'code', photo: 'photo' }
+for (const [folder, medium] of Object.entries(FOLDERS)) {
+  const dir = join(root, 'inbox', folder)
+  if (!existsSync(dir)) continue
+  for (const f of readdirSync(dir).filter((f) => IMG.test(f)).sort()) {
+    const base = f.replace(/\.[^.]+$/, '')
+    const image = webCopy(join(dir, f), folder, base.replace(/[^\w.-]+/g, '_'))
+    if (!image) continue
     const m = base.match(/^(\d{4}-\d{2})(?:-\d{2})?[ _-]*(.*)$/)
     const title = m && m[2] ? m[2].replace(/[-_]+/g, ' ').trim() : base.replace(/[-_]+/g, ' ')
     const id = `${folder}:${base}`
-    items.push({ id, kind: 'output', medium, title, date: m ? m[1] : NOW_MONTH, image: `${folder}/_web/${base}.jpg` })
+    items.push({ id, kind: 'output', medium, title, date: m ? m[1] : NOW_MONTH, image })
     if (medium === 'cooking' && !LINKS[id]) LINKS[id] = ['film:chef']
   }
 }

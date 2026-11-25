@@ -66,7 +66,7 @@ export async function paperize(img: HTMLImageElement, seed: number): Promise<HTM
       u_worldHeight: 0,
     }
     // ShaderMount only binds uniforms it was constructed with, so build it from the first full set
-    if (!mount) mount = new ShaderMount(host!, paperTextureFragmentShader, uniforms, { preserveDrawingBuffer: true, premultipliedAlpha: false, alpha: true }, 0, 0, 1)
+    if (!mount) mount = new ShaderMount(host!, paperTextureFragmentShader, uniforms, { preserveDrawingBuffer: true, premultipliedAlpha: false, alpha: true }, 0, 0, 1, 720 * 720)
     else mount.setUniforms(uniforms)
     await frame()
     const src = mount.canvasElement
