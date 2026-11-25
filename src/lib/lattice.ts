@@ -102,6 +102,10 @@ export function buildTesseract(items: Item[], palettes: Map<string, THREE.Color[
   const film = FILM.map((c) => new THREE.Color(c))
   const pick = () => (kept.length && rand() < 0.1 ? kept[Math.floor(rand() * kept.length)] : film[Math.floor(rand() * film.length)])
 
+  // Nothing of the lattice may enter the main tunnel, where the pictures hang (walls at 3.4, pictures to ~4.7).
+  const KEEP = 5.15
+  const inTunnel = (c: THREE.Vector3, sz: THREE.Vector3) => Math.abs(c.x) - sz.x / 2 < KEEP && Math.abs(c.y) - sz.y / 2 < KEEP
+
   // 1. Bundles: for each axis, M×M bundles through the tile; each bundle is a loose grid of strands.
   const sm: number[] = []
   const sc: number[] = []
@@ -130,6 +134,7 @@ export function buildTesseract(items: Item[], palettes: Map<string, THREE.Color[
       if (axis === 0) { p.set(mid, o1, o2); s.set(ln, w1, w2) }
       else if (axis === 1) { p.set(o1, mid, o2); s.set(w1, ln, w2) }
       else { p.set(o1, o2, mid); s.set(w1, w2, ln) }
+      if (inTunnel(p, s)) return
       m4.compose(p, q, s)
       sm.push(...m4.elements)
       sc.push(c.r * k, c.g * k, c.b * k)
@@ -205,6 +210,7 @@ export function buildTesseract(items: Item[], palettes: Map<string, THREE.Color[
             if (axis === 0) { p.set(0, o1, o2); s.set(L * 2, t, t) }
             else if (axis === 1) { p.set(o1, 0, o2); s.set(t, L * 2, t) }
             else { p.set(o1, o2, 0); s.set(t, t, L * 2) }
+            if (inTunnel(p, s)) continue
             m4.compose(p, q, s)
             const cold = rand() < 0.2
             const c = cold ? new THREE.Color().setRGB(0.45, 0.85, 1.0) : new THREE.Color().setRGB(1.0, 0.82, 0.6)
@@ -234,6 +240,7 @@ export function buildTesseract(items: Item[], palettes: Map<string, THREE.Color[
     q.setFromUnitVectors(new THREE.Vector3(0, 0, 1), nrm)
     const w = 1.8 + rand() * 2.2
     const h = B * (0.7 + rand() * 0.3)
+    if (Math.abs(base.x) < KEEP + 2 && Math.abs(base.y) < KEEP + 2) { q.identity(); continue }
     m4.compose(base, q, s.set(w, h, 1))
     shm.push(...m4.elements)
     shs.push(rand())
@@ -263,7 +270,7 @@ export function buildTesseract(items: Item[], palettes: Map<string, THREE.Color[
   }
   const prefOf = (it: Item) => PREF[it.medium] ?? (it.kind === 'output' ? [3] : [0])
   const sliceZ = (sl: number) => -(sl + 1) * P
-  const path = (t: number) => new THREE.Vector3(Math.sin(t * 0.23) * 0.9 + Math.sin(t * 0.09) * 0.4, Math.sin(t * 0.17 + 1.2) * 0.8, sliceZ(t))
+  const path = (t: number) => new THREE.Vector3(Math.sin(t * 0.23) * 0.35 + Math.sin(t * 0.09) * 0.15, Math.sin(t * 0.17 + 1.2) * 0.35, sliceZ(t))
   const moments: Moment[] = []
   const load = new Map<string, number>()
   const perSlot = 2
@@ -286,7 +293,8 @@ export function buildTesseract(items: Item[], palettes: Map<string, THREE.Color[
         let hh = w / a
         if (hh > maxS) { hh = maxS; w = hh * a }
         const S = SLOTS[slot]
-        const z = sliceZ(sl) + (n - (perSlot - 1) / 2) * 3.8
+        // same-lane pairs spaced well apart, and the two lanes of a wall alternate, so nothing lines up behind
+        const z = sliceZ(sl) + (((n + slot) % 2) - 0.5) * 5.4
         const c = path(sl)
         const pos = new THREE.Vector3(c.x + S.x, c.y + S.y, z)
         // face into the tunnel and back up it, toward you
