@@ -1,0 +1,616 @@
+[
+ {
+  "kind": "output",
+  "id": "batarang-2022",
+  "title": "Batarang, cut by hand",
+  "medium": "object",
+  "date": "2022-09",
+  "image": "made/IMG_6314.jpg",
+  "influences": []
+ },
+ {
+  "id": "pin:p36",
+  "kind": "input",
+  "medium": "pin",
+  "title": "Saved on Pinterest",
+  "date": "2025-06",
+  "approx": true,
+  "image": "pins/p36.jpg"
+ },
+ {
+  "id": "pin:p37",
+  "kind": "input",
+  "medium": "pin",
+  "title": "Saved on Pinterest",
+  "date": "2025-06",
+  "approx": true,
+  "image": "pins/p37.jpg"
+ },
+ {
+  "id": "pin:p34",
+  "kind": "input",
+  "medium": "pin",
+  "title": "Saved on Pinterest",
+  "date": "2025-07",
+  "approx": true,
+  "image": "pins/p34.jpg"
+ },
+ {
+  "id": "pin:p35",
+  "kind": "input",
+  "medium": "pin",
+  "title": "Saved on Pinterest",
+  "date": "2025-07",
+  "approx": true,
+  "image": "pins/p35.jpg"
+ },
+ {
+  "id": "pin:p32",
+  "kind": "input",
+  "medium": "pin",
+  "title": "Saved on Pinterest",
+  "date": "2025-08",
+  "approx": true,
+  "image": "pins/p32.jpg"
+ },
+ {
+  "id": "pin:p33",
+  "kind": "input",
+  "medium": "pin",
+  "title": "Saved on Pinterest",
+  "date": "2025-08",
+  "approx": true,
+  "image": "pins/p33.jpg"
+ },
+ {
+  "id": "pin:p30",
+  "kind": "input",
+  "medium": "pin",
+  "title": "Saved on Pinterest",
+  "date": "2025-09",
+  "approx": true,
+  "image": "pins/p30.jpg"
+ },
+ {
+  "id": "pin:p31",
+  "kind": "input",
+  "medium": "pin",
+  "title": "Saved on Pinterest",
+  "date": "2025-09",
+  "approx": true,
+  "image": "pins/p31.jpg"
+ },
+ {
+  "id": "pin:p28",
+  "kind": "input",
+  "medium": "pin",
+  "title": "Saved on Pinterest",
+  "date": "2025-10",
+  "approx": true,
+  "image": "pins/p28.jpg"
+ },
+ {
+  "id": "pin:p29",
+  "kind": "input",
+  "medium": "pin",
+  "title": "Saved on Pinterest",
+  "date": "2025-10",
+  "approx": true,
+  "image": "pins/p29.jpg"
+ },
+ {
+  "id": "film:la-jetee",
+  "kind": "input",
+  "medium": "film",
+  "title": "La Jetée",
+  "date": "2025-11",
+  "rating": 8,
+  "image": "films/la-jetee.jpg"
+ },
+ {
+  "id": "pin:p26",
+  "kind": "input",
+  "medium": "pin",
+  "title": "Saved on Pinterest",
+  "date": "2025-11",
+  "approx": true,
+  "image": "pins/p26.jpg"
+ },
+ {
+  "id": "pin:p27",
+  "kind": "input",
+  "medium": "pin",
+  "title": "Saved on Pinterest",
+  "date": "2025-11",
+  "approx": true,
+  "image": "pins/p27.jpg"
+ },
+ {
+  "id": "pin:p23",
+  "kind": "input",
+  "medium": "pin",
+  "title": "Saved on Pinterest",
+  "date": "2025-12",
+  "approx": true,
+  "image": "pins/p23.jpg"
+ },
+ {
+  "id": "pin:p24",
+  "kind": "input",
+  "medium": "pin",
+  "title": "Saved on Pinterest",
+  "date": "2025-12",
+  "approx": true,
+  "image": "pins/p24.jpg"
+ },
+ {
+  "id": "pin:p25",
+  "kind": "input",
+  "medium": "pin",
+  "title": "Saved on Pinterest",
+  "date": "2025-12",
+  "approx": true,
+  "image": "pins/p25.jpg"
+ },
+ {
+  "id": "film:rush-hour",
+  "kind": "input",
+  "medium": "film",
+  "title": "Rush Hour",
+  "date": "2026-01",
+  "rating": 6,
+  "image": "films/rush-hour.jpg"
+ },
+ {
+  "id": "film:kiss-kiss-bang-bang-2005",
+  "kind": "input",
+  "medium": "film",
+  "title": "Kiss Kiss Bang Bang",
+  "date": "2026-01",
+  "rating": 7,
+  "image": "films/kiss-kiss-bang-bang-2005.jpg"
+ },
+ {
+  "id": "pin:p21",
+  "kind": "input",
+  "medium": "pin",
+  "title": "Saved on Pinterest",
+  "date": "2026-01",
+  "approx": true,
+  "image": "pins/p21.jpg"
+ },
+ {
+  "id": "pin:p22",
+  "kind": "input",
+  "medium": "pin",
+  "title": "Saved on Pinterest",
+  "date": "2026-01",
+  "approx": true,
+  "image": "pins/p22.jpg"
+ },
+ {
+  "id": "film:dont-look-up-2021",
+  "kind": "input",
+  "medium": "film",
+  "title": "Don’t Look Up",
+  "date": "2026-02",
+  "rating": 10,
+  "image": "films/dont-look-up-2021.jpg"
+ },
+ {
+  "id": "film:catch-me-if-you-can-2002",
+  "kind": "input",
+  "medium": "film",
+  "title": "Catch Me If You Can",
+  "date": "2026-02",
+  "rating": 5,
+  "image": "films/catch-me-if-you-can-2002.jpg"
+ },
+ {
+  "id": "film:the-big-short",
+  "kind": "input",
+  "medium": "film",
+  "title": "The Big Short",
+  "date": "2026-02",
+  "rating": 6,
+  "image": "films/the-big-short.jpg"
+ },
+ {
+  "id": "film:the-social-network",
+  "kind": "input",
+  "medium": "film",
+  "title": "The Social Network",
+  "date": "2026-02",
+  "rating": 10,
+  "image": "films/the-social-network.jpg"
+ },
+ {
+  "id": "pin:p19",
+  "kind": "input",
+  "medium": "pin",
+  "title": "Saved on Pinterest",
+  "date": "2026-02",
+  "approx": true,
+  "image": "pins/p19.jpg"
+ },
+ {
+  "id": "pin:p20",
+  "kind": "input",
+  "medium": "pin",
+  "title": "Saved on Pinterest",
+  "date": "2026-02",
+  "approx": true,
+  "image": "pins/p20.jpg"
+ },
+ {
+  "id": "film:crazy-rich-asians",
+  "kind": "input",
+  "medium": "film",
+  "title": "Crazy Rich Asians",
+  "date": "2026-03",
+  "rating": 8,
+  "image": "films/crazy-rich-asians.jpg"
+ },
+ {
+  "id": "film:avengers-endgame",
+  "kind": "input",
+  "medium": "film",
+  "title": "Avengers: Endgame",
+  "date": "2026-03",
+  "rating": 10,
+  "image": "films/avengers-endgame.jpg"
+ },
+ {
+  "id": "film:the-dark-knight",
+  "kind": "input",
+  "medium": "film",
+  "title": "The Dark Knight",
+  "date": "2026-03",
+  "rating": 10,
+  "image": "films/the-dark-knight.jpg"
+ },
+ {
+  "id": "film:marty-supreme",
+  "kind": "input",
+  "medium": "film",
+  "title": "Marty Supreme",
+  "date": "2026-03",
+  "rating": 8,
+  "image": "films/marty-supreme.jpg"
+ },
+ {
+  "id": "film:evangelion-10-you-are-not-alone",
+  "kind": "input",
+  "medium": "film",
+  "title": "Evangelion: 1.0 You Are (Not) Alone",
+  "date": "2026-03",
+  "rating": 7,
+  "image": "films/evangelion-10-you-are-not-alone.jpg"
+ },
+ {
+  "id": "film:iron-man-2008",
+  "kind": "input",
+  "medium": "film",
+  "title": "Iron Man",
+  "date": "2026-03",
+  "rating": 9,
+  "image": "films/iron-man-2008.jpg"
+ },
+ {
+  "id": "pin:p17",
+  "kind": "input",
+  "medium": "pin",
+  "title": "Saved on Pinterest",
+  "date": "2026-03",
+  "approx": true,
+  "image": "pins/p17.jpg"
+ },
+ {
+  "id": "pin:p18",
+  "kind": "input",
+  "medium": "pin",
+  "title": "Saved on Pinterest",
+  "date": "2026-03",
+  "approx": true,
+  "image": "pins/p18.jpg"
+ },
+ {
+  "id": "film:rush-hour-2",
+  "kind": "input",
+  "medium": "film",
+  "title": "Rush Hour 2",
+  "date": "2026-04",
+  "rating": 6,
+  "image": "films/rush-hour-2.jpg"
+ },
+ {
+  "id": "film:detective-chinatown-1900",
+  "kind": "input",
+  "medium": "film",
+  "title": "Detective Chinatown 1900",
+  "date": "2026-04",
+  "rating": 10,
+  "image": "films/detective-chinatown-1900.jpg"
+ },
+ {
+  "id": "film:goodbye-mr-loser",
+  "kind": "input",
+  "medium": "film",
+  "title": "Goodbye Mr. Loser",
+  "date": "2026-04",
+  "rating": 9,
+  "image": "films/goodbye-mr-loser.jpg"
+ },
+ {
+  "id": "film:the-shawshank-redemption",
+  "kind": "input",
+  "medium": "film",
+  "title": "The Shawshank Redemption",
+  "date": "2026-04",
+  "rating": 8,
+  "image": "films/the-shawshank-redemption.jpg"
+ },
+ {
+  "id": "film:transformers",
+  "kind": "input",
+  "medium": "film",
+  "title": "Transformers",
+  "date": "2026-04",
+  "rating": 8,
+  "image": "films/transformers.jpg"
+ },
+ {
+  "id": "film:the-shadows-edge-2025",
+  "kind": "input",
+  "medium": "film",
+  "title": "The Shadow’s Edge",
+  "date": "2026-04",
+  "rating": 5,
+  "image": "films/the-shadows-edge-2025.jpg"
+ },
+ {
+  "id": "film:fantastic-four-2005",
+  "kind": "input",
+  "medium": "film",
+  "title": "Fantastic Four",
+  "date": "2026-04",
+  "rating": 8,
+  "image": "films/fantastic-four-2005.jpg"
+ },
+ {
+  "id": "film:the-godfather-part-ii",
+  "kind": "input",
+  "medium": "film",
+  "title": "The Godfather Part II",
+  "date": "2026-04",
+  "rating": 6,
+  "image": "films/the-godfather-part-ii.jpg"
+ },
+ {
+  "id": "film:project-hail-mary",
+  "kind": "input",
+  "medium": "film",
+  "title": "Project Hail Mary",
+  "date": "2026-04",
+  "rating": 7,
+  "image": "films/project-hail-mary.jpg"
+ },
+ {
+  "id": "pin:p15",
+  "kind": "input",
+  "medium": "pin",
+  "title": "Saved on Pinterest",
+  "date": "2026-04",
+  "approx": true,
+  "image": "pins/p15.jpg"
+ },
+ {
+  "id": "pin:p16",
+  "kind": "input",
+  "medium": "pin",
+  "title": "Saved on Pinterest",
+  "date": "2026-04",
+  "approx": true,
+  "image": "pins/p16.jpg"
+ },
+ {
+  "id": "film:chef",
+  "kind": "input",
+  "medium": "film",
+  "title": "Chef",
+  "date": "2026-05",
+  "rating": 8,
+  "image": "films/chef.jpg"
+ },
+ {
+  "id": "film:now-you-see-me",
+  "kind": "input",
+  "medium": "film",
+  "title": "Now You See Me",
+  "date": "2026-05",
+  "rating": 8,
+  "image": "films/now-you-see-me.jpg"
+ },
+ {
+  "id": "pin:p12",
+  "kind": "input",
+  "medium": "pin",
+  "title": "Saved on Pinterest",
+  "date": "2026-05",
+  "approx": true,
+  "image": "pins/p12.jpg"
+ },
+ {
+  "id": "pin:p13",
+  "kind": "input",
+  "medium": "pin",
+  "title": "Saved on Pinterest",
+  "date": "2026-05",
+  "approx": true,
+  "image": "pins/p13.jpg"
+ },
+ {
+  "id": "pin:p14",
+  "kind": "input",
+  "medium": "pin",
+  "title": "Saved on Pinterest",
+  "date": "2026-05",
+  "approx": true,
+  "image": "pins/p14.jpg"
+ },
+ {
+  "kind": "output",
+  "id": "lake-house",
+  "title": "Snow Mountain Lake House",
+  "medium": "architecture",
+  "date": "2026-05",
+  "image": "made/P1010105.jpg",
+  "model": "snow-mountain-lake-house.glb"
+ },
+ {
+  "kind": "output",
+  "id": "lake-house-2",
+  "title": "Snow Mountain Lake House — study",
+  "medium": "architecture",
+  "date": "2026-05",
+  "image": "made/IMG_1452.jpg"
+ },
+ {
+  "kind": "output",
+  "id": "lake-house-3",
+  "title": "Snow Mountain Lake House — night",
+  "medium": "architecture",
+  "date": "2026-05",
+  "image": "made/IMG_1457.jpg"
+ },
+ {
+  "kind": "output",
+  "id": "lake-house-4",
+  "title": "Snow Mountain Lake House — elevation",
+  "medium": "architecture",
+  "date": "2026-05",
+  "image": "made/P1010107.jpg"
+ },
+ {
+  "id": "pin:p10",
+  "kind": "input",
+  "medium": "pin",
+  "title": "Saved on Pinterest",
+  "date": "2026-06",
+  "approx": true,
+  "image": "pins/p10.jpg"
+ },
+ {
+  "id": "pin:p11",
+  "kind": "input",
+  "medium": "pin",
+  "title": "Saved on Pinterest",
+  "date": "2026-06",
+  "approx": true,
+  "image": "pins/p11.jpg"
+ },
+ {
+  "id": "pin:p08",
+  "kind": "input",
+  "medium": "pin",
+  "title": "Saved on Pinterest",
+  "date": "2026-07",
+  "approx": true,
+  "image": "pins/p08.jpg"
+ },
+ {
+  "id": "pin:p09",
+  "kind": "input",
+  "medium": "pin",
+  "title": "Saved on Pinterest",
+  "date": "2026-07",
+  "approx": true,
+  "image": "pins/p09.jpg"
+ },
+ {
+  "id": "pin:p06",
+  "kind": "input",
+  "medium": "pin",
+  "title": "Saved on Pinterest",
+  "date": "2026-08",
+  "approx": true,
+  "image": "pins/p06.jpg"
+ },
+ {
+  "id": "pin:p07",
+  "kind": "input",
+  "medium": "pin",
+  "title": "Saved on Pinterest",
+  "date": "2026-08",
+  "approx": true,
+  "image": "pins/p07.jpg"
+ },
+ {
+  "id": "pin:p04",
+  "kind": "input",
+  "medium": "pin",
+  "title": "Saved on Pinterest",
+  "date": "2026-09",
+  "approx": true,
+  "image": "pins/p04.jpg"
+ },
+ {
+  "id": "pin:p05",
+  "kind": "input",
+  "medium": "pin",
+  "title": "Saved on Pinterest",
+  "date": "2026-09",
+  "approx": true,
+  "image": "pins/p05.jpg"
+ },
+ {
+  "id": "pin:p02",
+  "kind": "input",
+  "medium": "pin",
+  "title": "Saved on Pinterest",
+  "date": "2026-10",
+  "approx": true,
+  "image": "pins/p02.jpg"
+ },
+ {
+  "id": "pin:p03",
+  "kind": "input",
+  "medium": "pin",
+  "title": "Saved on Pinterest",
+  "date": "2026-10",
+  "approx": true,
+  "image": "pins/p03.jpg"
+ },
+ {
+  "id": "pin:p00",
+  "kind": "input",
+  "medium": "pin",
+  "title": "Saved on Pinterest",
+  "date": "2026-11",
+  "approx": true,
+  "image": "pins/p00.jpg"
+ },
+ {
+  "id": "pin:p01",
+  "kind": "input",
+  "medium": "pin",
+  "title": "Saved on Pinterest",
+  "date": "2026-11",
+  "approx": true,
+  "image": "pins/p01.jpg"
+ },
+ {
+  "kind": "output",
+  "id": "batarang-3d",
+  "title": "Batarang — 3D Art Final",
+  "medium": "3d",
+  "date": "2026-11",
+  "image": "made/work-in-progress.jpg",
+  "model": "batarang.glb",
+  "influences": [
+   "film:the-dark-knight",
+   "film:iron-man-2008",
+   "batarang-2022"
+  ]
+ }
+]
