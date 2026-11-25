@@ -4,6 +4,10 @@ type Phase = 'loading' | 'ready' | 'intro' | 'drift' | 'fold'
 
 interface State {
   phase: Phase
+  demo: boolean
+  setDemo: (b: boolean) => void
+  paused: boolean
+  setPaused: (b: boolean) => void
   progress: number
   hovered: number | null // room index
   selected: number | null
@@ -20,6 +24,10 @@ interface State {
 
 export const useStore = create<State>((set) => ({
   phase: 'loading',
+  demo: false,
+  setDemo: (demo) => set({ demo, paused: false }),
+  paused: false,
+  setPaused: (paused) => set({ paused }),
   progress: 0,
   hovered: null,
   selected: null,

@@ -34,9 +34,8 @@ export function TessRig({ tess }: { tess: Tess }) {
     ;(window as unknown as { __dbg: unknown }).__dbg = { motion, U, tess, ctl, store: useStore }
     const el = gl.domElement
     const c = ctl.current
-    const cinema = location.search.includes('cinema')
     const advance = (dv: number) => {
-      if (cinema) return
+      if (useStore.getState().demo) return
       const st = useStore.getState()
       if (st.phase === 'fold') return
       if (st.selected !== null) { st.setSelected(null); return }
@@ -104,13 +103,21 @@ export function TessRig({ tess }: { tess: Tess }) {
       t1 = { x, y }
     }
     const onKey = (e: KeyboardEvent) => {
-      if (['ArrowDown', ' ', 'PageDown', 'w', 'W'].includes(e.key)) { e.preventDefault(); advance(1) }
+      // Space: start the 2:00 fly-through, then pause / play it
+      if (e.key === ' ') {
+        e.preventDefault()
+        const st = useStore.getState()
+        if (!st.demo) st.setDemo(true)
+        else st.setPaused(!st.paused)
+        return
+      }
+      if (['ArrowDown', 'PageDown', 'w', 'W'].includes(e.key)) { e.preventDefault(); advance(1) }
       if (['ArrowUp', 'PageUp', 's', 'S'].includes(e.key)) { e.preventDefault(); advance(-1) }
       if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') c.yawV += 0.12
       if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') c.yawV -= 0.12
       if (e.key === '+' || e.key === '=') zoomBy(0.85)
       if (e.key === '-' || e.key === '_') zoomBy(1.18)
-      if (e.key === 'Escape') useStore.getState().setSelected(null)
+      if (e.key === 'Escape') { useStore.getState().setSelected(null); useStore.getState().setDemo(false) }
     }
     const noMenu = (e: MouseEvent) => e.preventDefault()
     el.addEventListener('wheel', onWheel, { passive: false })
@@ -133,19 +140,7 @@ export function TessRig({ tess }: { tess: Tess }) {
     tl.to(motion, { intro: 1, duration: 7, ease: 'power3.out' }, 0)
     useStore.getState().setPhase('drift')
 
-    // ?cinema — a hands-free 50 s take for the Kino trailer: fall in, drift through time,
-    // stop to look at the Batarang and pluck its strings, keep going, then the tesseract folds.
-    if (cinema) {
-      document.body.style.cursor = 'none'
-      const bat = tess.moments.find((m) => m.item.id === 'batarang-3d') ?? tess.moments[tess.moments.length - 1]
-      const st = useStore.getState()
-      tl.to(motion, { target: Math.max(minT, bat.slice - 1.6), duration: 26, ease: 'sine.inOut' }, 6)
-      tl.add(() => st.setHovered(bat.index), 31)
-      tl.add(() => st.setSelected(bat.index), 32.5)
-      tl.add(() => { st.setSelected(null); st.setHovered(null) }, 38.5)
-      tl.to(motion, { target: maxT, duration: 9, ease: 'sine.in' }, 40)
-      tl.add(() => { motion.overscroll = 99; fold() }, 49)
-    }
+    if (location.search.includes('cinema')) setTimeout(() => useStore.getState().setDemo(true), 400)
     return () => {
       tl.kill()
       el.removeEventListener('wheel', onWheel)
@@ -158,6 +153,55 @@ export function TessRig({ tess }: { tess: Tess }) {
       window.removeEventListener('keydown', onKey)
     }
   }, [gl, maxT, tess, tmp])
+
+  // The 2:00 fly-through: fall in → the gauntlet → Framed (old Pudong → the Pearl Tower) → the TerragentX win → the fold.
+  const demo = useStore((s) => s.demo)
+  const paused = useStore((s) => s.paused)
+  const demoTl = useRef<gsap.core.Timeline | null>(null)
+  useEffect(() => {
+    if (!demo) return
+    const st = useStore.getState()
+    const find = (id: string, fallback: number) => tess.moments.find((m) => m.item.id === id) ?? tess.moments[fallback]
+    const stops = [
+      find('new:IMG_1548', 0), // gauntlet, worn — sketch → armour → sensors → this
+      find('new:DSC_1380', 1), // Framed — old Pudong → every Pearl Tower shot
+      find('new:IMG_9761', tess.moments.length - 1), // overall winner — bulldog → logo → shady.Hacks → this
+    ]
+    const c = ctl.current
+    c.off.set(0, 0, 0)
+    c.yaw = c.pitch = 0
+    st.setSelected(null)
+    st.setHovered(null)
+    document.body.style.cursor = 'none'
+    motion.overscroll = 0
+    motion.t = minT - 4
+    motion.target = minT
+    motion.intro = 0
+    motion.exposure = 0
+    const tl = gsap.timeline({ onComplete: () => { useStore.getState().setDemo(false); document.body.style.cursor = '' } })
+    demoTl.current = tl
+    tl.to(motion, { exposure: 1, duration: 4.5, ease: 'power2.inOut' }, 0.3)
+    tl.to(motion, { intro: 1, duration: 7, ease: 'power3.out' }, 0)
+    const at = [[6, 28], [43, 19], [71, 25]] // [start, travel seconds] for each stop
+    stops.forEach((m, i) => {
+      const [t0, dur] = at[i]
+      const arrive = t0 + dur
+      tl.to(motion, { target: Math.max(minT, m.slice - 1.4), duration: dur, ease: 'sine.inOut' }, t0)
+      tl.add(() => st.setHovered(m.index), arrive)
+      tl.add(() => st.setSelected(m.index), arrive + 1.5)
+      tl.add(() => { st.setSelected(null); st.setHovered(null) }, arrive + 8)
+    })
+    tl.to(motion, { target: maxT, duration: 11, ease: 'sine.in' }, 105)
+    tl.add(() => { motion.overscroll = 99; fold() }, 116)
+    tl.add(() => {}, 121)
+    return () => { tl.kill(); demoTl.current = null; document.body.style.cursor = '' }
+  }, [demo, tess, maxT])
+  // pause holds the fly-through where it is (the camera keeps its weightless drift)
+  useEffect(() => {
+    const tl = demoTl.current
+    if (!tl) return
+    if (paused) { tl.pause(); document.body.style.cursor = '' } else { tl.resume(); document.body.style.cursor = 'none' }
+  }, [paused])
 
   const selected = useStore((s) => s.selected)
   useEffect(() => {

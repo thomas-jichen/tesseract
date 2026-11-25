@@ -4,7 +4,7 @@
 
 ### 🔗 Live: **[thomas-jichen.github.io/tesseract](https://thomas-jichen.github.io/tesseract/)**
 
-Trailer take: [`?cinema`](https://thomas-jichen.github.io/tesseract/?cinema) · Repo: [github.com/thomas-jichen/tesseract](https://github.com/thomas-jichen/tesseract)
+Press **Space** for the 2:00 fly-through · trailer take: [`?cinema`](https://thomas-jichen.github.io/tesseract/?cinema) · Repo: [github.com/thomas-jichen/tesseract](https://github.com/thomas-jichen/tesseract)
 
 > First load takes ~20 s while 205 prints download and are re-printed onto paper. Open it a minute before showing it.
 
@@ -20,6 +20,7 @@ There's no interface: no title, no labels, no launch screen. You fall in and dri
 
 | Do | Happens |
 |---|---|
+| **Space** | Start the 2:00 fly-through (fall → the gauntlet → *Framed* → the TerragentX win → the fold); Space again pauses and plays; `Esc` stops it |
 | **Scroll** / swipe / `↑` `↓` / `W` `S` | Move through time: past saves behind you, the future ahead |
 | **Drag** | Look around |
 | **Pinch**, `⌘`/`Alt` + scroll, `+` `−` | Zoom |
@@ -27,7 +28,7 @@ There's no interface: no title, no labels, no launch screen. You fall in and dri
 | **Hover** a moment | Its lineage strings tremble and light runs from cause to effect |
 | **Click** a moment | Fly in to face it (3D work turns in front of its print). Click, `Esc` or scroll to drift back |
 | Scroll past the future | The tesseract folds into white light and starts again |
-| `?cinema` | A hands-free 50 s take (fall → drift → Batarang lineage → fold) for recording the trailer |
+| `?cinema` | Plays the 2:00 fly-through on load, for recording the trailer |
 
 ## What's in it
 
