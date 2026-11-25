@@ -51,7 +51,7 @@ export async function loadAll(items: Item[], onProgress: (p: number) => void, ma
       (it) =>
         new Promise<void>((resolve) => {
           loader.load(
-            `/items/${it.image}`,
+            `${import.meta.env.BASE_URL}items/${it.image}`,
             (t) => {
               t.colorSpace = THREE.SRGBColorSpace
               t.anisotropy = maxAniso

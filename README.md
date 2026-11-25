@@ -2,6 +2,8 @@
 
 **Everything I saved and everything I made, extruded through time.**
 
+**Live:** https://thomas-jichen.github.io/tesseract/  ·  trailer take: https://thomas-jichen.github.io/tesseract/?cinema
+
 Built at the SF Non-Slop Hackathon (Pangram × Kino × Capy × Paper, Nov 24 2026). The theme was *"What matters when you can generate anything? Can you explain your choices?"*
 
 In *Interstellar*, the tesseract turns a room into strings because every object in it is stretched through time. This piece does the same thing to my taste. Every film I watched, every pin I saved and every thing I built hangs inside an infinite lattice. Each kind of thing runs on its own thread through time, and gold strings connect what inspired a work to the work itself. AI-made inputs, as identified by Pangram, can't hold a thread.
@@ -59,6 +61,7 @@ There's no interface: no title, no labels, no launch screen. You fall in and dri
 npm install
 npm run dev            # http://localhost:5173   ( ?cinema · ?nopaper · ?fx=afbctnv toggles post FX )
 npm run build          # static build in dist/
+npm run deploy         # build for /tesseract/ and publish to GitHub Pages (gh-pages branch)
 ```
 
 ### Add things

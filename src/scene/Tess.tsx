@@ -40,7 +40,7 @@ export function Lattice({ tess }: { tess: Tess }) {
   )
 }
 
-const SUIT = '/models/astronaut-emu.glb'
+const SUIT = `${import.meta.env.BASE_URL}models/astronaut-emu.glb`
 
 // A real EVA suit (NASA EMU) with its own materials, lit by the scene's lights.
 function Suit() {
@@ -301,7 +301,7 @@ export function SelectedModel({ tess }: { tess: Tess }) {
   if (!m?.item.model) return null
   return (
     <Suspense fallback={null}>
-      <ModelInner url={`/models/${m.item.model}`} m={m} />
+      <ModelInner url={`${import.meta.env.BASE_URL}models/${m.item.model}`} m={m} />
     </Suspense>
   )
 }
