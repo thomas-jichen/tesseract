@@ -40,11 +40,13 @@ There's no interface: no title, no labels, no launch screen. You fall in and dri
   - **code (13):** desks, late code, shady.Hacks → demo → finalists → overall winner (TerragentX)
   - **roots and life (13):** old Pudong, trains, *Me llamo Thomas Jichen Wang*, walking onto campus, Stanford in red, graduation, Hoover Tower in fall
   - **seen (14), food and cooking (15), art (4), play (5)**
-- **Timeline:** 1998 → November 2026. Long empty stretches fold down. 205 moments, 57 with stated lineage.
-- **Threads:** the four bundles around your path each split into up to four threads, one per kind of thing.
-  - Upper corners (what went in): films, pins, seen, roots, play, food.
-  - Lower corners (what came out): photography, art, architecture, physical projects, football, science, code.
-  - Each thread's strands take the colours of the moments it carries. Inward threads hang on the faces you drift past; outward ones hang just beyond, seen through the lattice.
+- **Timeline:** 1998 → November 2026. Empty months fold to a single slice, so a full flight is quick. 205 moments, 57 with stated lineage.
+- **The tunnel:** every moment hangs on one of the four walls of the main tunnel, two lanes per wall, facing in and back toward you, so a full flight shows every picture.
+  - **Top:** films, pins, places and works I saw.
+  - **Right:** photography, architecture, physical projects.
+  - **Bottom:** football, science, code.
+  - **Left:** roots, art, play, food.
+  - Each thread's strand bundle runs just behind its wall and takes the colours of the moments it carries. The lattice extends infinitely beyond.
 - **Lineage:** stated links are bright gold, read from the work itself. For example:
   - an old Pudong photo → every Pearl Tower photo I later shot
   - gauntlet sketch → gauntlet
@@ -55,7 +57,7 @@ There's no interface: no title, no labels, no launch screen. You fall in and dri
   - *Chef* → latte art, steak and mushrooms, steak toast
   - Batarang 3D ← *The Dark Knight*, *Iron Man*, the 2022 batarang
 
-  Things with no stated lineage get one faint amber "echo" to the earlier save whose colours most resemble them. Echoes are inferred, not claimed.
+  Strings bow along the walls and fade unless you're near one of their ends, so you only see the lineage around you. Things with no stated lineage get one faint amber "echo" to the earlier save whose colours most resemble them. Echoes are inferred, not claimed.
 - **Other selves:** NASA EMU astronauts float translucently in the open space you drift through, ahead of you and behind you.
 
 ## Rendering

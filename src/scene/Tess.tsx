@@ -87,7 +87,7 @@ function Suit() {
     c.position.sub(bb.getCenter(new THREE.Vector3()))
     const w = new THREE.Group()
     w.add(c)
-    w.scale.setScalar(2.1 / Math.max(size.x, size.y, size.z))
+    w.scale.setScalar(1.8 / Math.max(size.x, size.y, size.z))
     return w
   }, [scene])
   return <primitive object={obj} />
@@ -105,8 +105,10 @@ export function Astronauts({ tess }: { tess: Tess }) {
       const c = tess.path(k)
       let p: THREE.Vector3
       if (rnd() < 0.72) {
-        const side = rnd() < 0.5 ? -1 : 1
-        p = new THREE.Vector3(c.x + side * (2.6 + rnd() * 1.0), c.y + (rnd() - 0.5) * 3.6, c.z + (rnd() - 0.5) * 3)
+        // in the tunnel's corners, between the walls, so they never cover a picture
+        const sx = rnd() < 0.5 ? -1 : 1
+        const sy = rnd() < 0.5 ? -1 : 1
+        p = new THREE.Vector3(c.x + sx * (3.2 + rnd() * 0.4), c.y + sy * (3.2 + rnd() * 0.4), tess.sliceZ(Math.round(k)) + (rnd() - 0.5) * 1.2)
       } else {
         const [ci, cj] = cells[Math.floor(rnd() * cells.length)]
         p = new THREE.Vector3(ci * 11 + (rnd() - 0.5) * 3, cj * 11 + (rnd() - 0.5) * 3, c.z + (rnd() - 0.5) * 3)
@@ -213,9 +215,11 @@ function Thread({ tess, from, to, strength }: { tess: Tess; from: number; to: nu
   const { pts, perp, len } = useMemo(() => {
     const a = A.pos.clone().addScaledVector(A.normal, 0.3)
     const b = Bm.pos.clone().addScaledVector(Bm.normal, 0.3)
-    // pull the middle of the string toward the open space you drift through
+    // bow the string outward along the tunnel walls, keeping the middle of the tunnel clear to look down
     const mid = a.clone().lerp(b, 0.5)
-    const ctrl = new THREE.Vector3(mid.x * 0.15, mid.y * 0.15 + (strength > 0.7 ? 1.2 : -0.8), mid.z)
+    const r = Math.hypot(mid.x, mid.y) || 1
+    const out = Math.max(r, 3.6) * 1.12 / r
+    const ctrl = new THREE.Vector3(mid.x * out, mid.y * out, mid.z)
     const curve = new THREE.QuadraticBezierCurve3(a, ctrl, b)
     const pts = curve.getPoints(SEG)
     const d = b.clone().sub(a).normalize()
@@ -251,13 +255,16 @@ function Thread({ tess, from, to, strength }: { tess: Tess; from: number; to: nu
       pulse.current?.geometry.setPositions(buf)
       inited.current = true
     }
-    const e = U.uExposure.value
+    // strings fade unless you're near one of their ends, so only the lineage around you is drawn
+    const cam = state.camera.position
+    const near = Math.min(cam.distanceTo(A.pos), cam.distanceTo(Bm.pos))
+    const e = U.uExposure.value * Math.max(k, THREE.MathUtils.clamp(1.2 - near / 30, 0.04, 1))
     if (base.current) {
-      base.current.material.opacity = Math.min(1, 0.35 + strength * 0.6 + k * 0.5) * e
+      base.current.material.opacity = Math.min(1, 0.22 + strength * 0.45 + k * 0.6) * e
       base.current.material.linewidth = (strength > 0.7 ? 3 : 1.9) + k * 2
     }
     if (pulse.current) {
-      pulse.current.material.opacity = Math.min(1, 0.5 + strength * 0.6 + k) * e
+      pulse.current.material.opacity = Math.min(1, 0.35 + strength * 0.5 + k) * e
       pulse.current.material.linewidth = (strength > 0.7 ? 6.5 : 4) + k * 3
       // light travels from what was saved toward what was made
       pulse.current.material.dashOffset = -(((state.clock.elapsedTime * (0.16 + k * 0.25) + phase) % 1) * len * 1.25)

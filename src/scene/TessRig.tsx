@@ -56,7 +56,7 @@ export function TessRig({ tess }: { tess: Tess }) {
         c.vel.addScaledVector(tmp.right, e.deltaX * 0.012)
         return
       }
-      advance(THREE.MathUtils.clamp(e.deltaY, -120, 120) * 0.0032)
+      advance(THREE.MathUtils.clamp(e.deltaY, -120, 120) * 0.0068)
     }
     const onDown = (e: PointerEvent) => {
       c.mode = e.shiftKey || e.button === 2 ? 'slide' : 'look'
@@ -99,7 +99,7 @@ export function TessRig({ tess }: { tess: Tess }) {
       if (!t1) return
       const x = e.touches[0].clientX
       const y = e.touches[0].clientY
-      advance((t1.y - y) * 0.008)
+      advance((t1.y - y) * 0.016)
       c.yawV += -(x - t1.x) * 0.003
       t1 = { x, y }
     }
@@ -172,7 +172,7 @@ export function TessRig({ tess }: { tess: Tess }) {
     const c = ctl.current
 
     const prev = motion.t
-    motion.t += (motion.target - motion.t) * (1 - Math.exp(-dt * 1.6))
+    motion.t += (motion.target - motion.t) * (1 - Math.exp(-dt * 2.4))
     motion.velocity = (motion.t - prev) / Math.max(dt, 1e-3)
 
     // look-around with inertia; it stays where you leave it

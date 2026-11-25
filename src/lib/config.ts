@@ -8,7 +8,7 @@ export const CORRIDOR_J = 1 // |j| <= this is open corridor in column 0
 export const ROWS = 4 // shelf rows per cell
 export const LEAD_SLICES = 1 // a breath of lattice before the first moment
 export const FUTURE_SLICES = 12 // lattice that continues past "now"
-export const MAX_GAP = 3 // long empty stretches of time fold down to this many slices
+export const MAX_GAP = 1 // empty stretches of time fold down to a single slice
 export const NOW = '2026-11'
 export const NAME = 'Thomas Wang'
 

@@ -149,8 +149,6 @@ export function buildTesseract(items: Item[], palettes: Map<string, THREE.Color[
       for (let j = 0; j < M; j++) {
         const a0 = -L / 2 + i * P
         const b0 = -L / 2 + j * P
-        // the four threads around the path belong to Thomas's tracks
-        if (axis === 2 && Math.abs(Math.abs(a0) - h0) < 0.01 && Math.abs(Math.abs(b0) - h0) < 0.01) continue
         if (rand() < 0.1) continue // the occasional missing bundle
         // every bundle is its own shape: rectangular, off-grid, sometimes split into parallel sub-bundles
         const subs = rand() < 0.35 ? 2 + Math.floor(rand() * 2) : 1
@@ -236,69 +234,64 @@ export function buildTesseract(items: Item[], palettes: Map<string, THREE.Color[
 
   // 3. Tracks: each kind of thing Thomas keeps or makes runs on its own thread through time.
   //    Inputs ride the upper threads, things he made ride the lower ones.
-  const h = P / 2
-  type Lane = { track: [number, number]; hang: [number, number] }
-  // Four corner bundles around the path, each split into up to four threads — one per kind of thing.
-  // Inward lanes hang on the faces you drift past; outward lanes hang just beyond, seen through the lattice.
-  const UR: [number, number] = [h, h], UL: [number, number] = [-h, h], LL: [number, number] = [-h, -h], LR: [number, number] = [h, -h]
-  const lane = (track: [number, number], hx: number, hy: number): Lane => ({ track, hang: [hx, hy] })
-  const TRACKS: Record<string, Lane[]> = {
-    // what went in (upper)
-    film: [lane(UR, 0, -1), lane(UR, -1, 0)],
-    pin: [lane(UL, 0, -1), lane(UL, 1, 0)],
-    seen: [lane(UR, 1, 0)],
-    life: [lane(UR, 0, 1)],
-    play: [lane(UL, -1, 0)],
-    cooking: [lane(UL, 0, 1)],
-    // what came out (lower)
-    photo: [lane(LL, 0, 1), lane(LL, 1, 0)],
-    art: [lane(LL, -1, 0)],
-    architecture: [lane(LL, 0, -1)],
-    object: [lane(LR, 0, 1)],
-    project: [lane(LR, 0, 1)],
-    football: [lane(LR, -1, 0)],
-    science: [lane(LR, 1, 0)],
-    code: [lane(LR, 0, -1)],
-    web: [lane(LR, 0, -1)],
-    '3d': [lane(LR, 0, -1)],
+  // The main tunnel: every moment hangs on one of its four walls — top, right, bottom, left — two lanes
+  // per wall, facing in and tilted back toward you, so a full flight shows every picture clearly.
+  // Each kind of thing keeps its own wall; its thread (a strand bundle) runs just behind it.
+  const WALL = 3.4 // distance of each wall from the path
+  const LANE = 1.45 // offset of the two lanes along a wall
+  type Slot = { x: number; y: number; nx: number; ny: number }
+  const SLOTS: Slot[] = [
+    { x: -LANE, y: WALL, nx: 0, ny: -1 }, { x: LANE, y: WALL, nx: 0, ny: -1 }, // top
+    { x: WALL, y: LANE, nx: -1, ny: 0 }, { x: WALL, y: -LANE, nx: -1, ny: 0 }, // right
+    { x: LANE, y: -WALL, nx: 0, ny: 1 }, { x: -LANE, y: -WALL, nx: 0, ny: 1 }, // bottom
+    { x: -WALL, y: -LANE, nx: 1, ny: 0 }, { x: -WALL, y: LANE, nx: 1, ny: 0 }, // left
+  ]
+  const WALL_OF = [[0, 1], [0, 1], [2, 3], [2, 3], [4, 5], [4, 5], [6, 7], [6, 7]]
+  const PREF: Record<string, number[]> = {
+    film: [0, 1], pin: [1, 0], seen: [0],
+    photo: [2, 3], architecture: [2], object: [3], project: [3], '3d': [3],
+    football: [4], science: [5], code: [5], web: [5],
+    life: [7], art: [7], play: [6], cooking: [6],
   }
-  const THREAD_OFF = 1.15 // a thread sits just off its corner, toward the side it hangs on
-  const trackOf = (it: Item): Lane[] => TRACKS[it.medium] ?? [lane(LR, 0, 1)]
+  const prefOf = (it: Item) => PREF[it.medium] ?? (it.kind === 'output' ? [3] : [0])
   const sliceZ = (sl: number) => -(sl + 1) * P
   const path = (t: number) => new THREE.Vector3(Math.sin(t * 0.23) * 0.9 + Math.sin(t * 0.09) * 0.4, Math.sin(t * 0.17 + 1.2) * 0.8, sliceZ(t))
   const moments: Moment[] = []
   const load = new Map<string, number>()
   const perSlot = 2
-  let rr = 0
   for (const item of items) {
-    const lanes = trackOf(item)
+    const pref = prefOf(item)
+    const wall = WALL_OF[pref[0]]
+    const near = [pref[0] + 2, pref[0] - 2, pref[0] + 6, pref[0] + 4].map((x) => ((x % 8) + 8) % 8)
+    const order = [...new Set([...pref, ...wall, ...near, 0, 1, 2, 3, 4, 5, 6, 7])]
     let sl = index.get(item.date) ?? 0
-    for (;;) {
-      const lane = lanes[rr++ % lanes.length]
-      const k = `${lane.track},${lane.hang},${sl}`
-      const n = load.get(k) ?? 0
-      if (n >= perSlot && sl < slices.length - 1) { sl++; continue }
-      load.set(k, n + 1)
-      const a = aspects.get(item.id) ?? 0.75
-      const maxS = item.kind === 'output' ? 3.4 : 2.9
-      let w = maxS
-      let hh = w / a
-      if (hh > maxS) { hh = maxS; w = hh * a }
-      // each moment hangs from its thread into the open face of the lattice, turned toward you
-      const [cx, cy] = lane.track
-      const [hx, hy] = lane.hang
-      const tx = cx + hx * THREAD_OFF
-      const ty = cy + hy * THREAD_OFF
-      const extent = hy !== 0 ? hh : w
-      const reach = 0.9 + 0.45 + extent / 2
-      const pos = new THREE.Vector3(tx + hx * reach, ty + hy * reach, sliceZ(sl) + (n - (perSlot - 1) / 2) * 4.4)
-      const outward = hx * cx + hy * cy > 0
-      const face = hy !== 0 ? new THREE.Vector3(-Math.sign(cx), 0, 0) : new THREE.Vector3(0, -Math.sign(cy), 0)
-      const normal = face.multiplyScalar(outward ? 0.6 : 0.8).add(new THREE.Vector3(outward ? -hx * 0.45 : 0, outward ? -hy * 0.45 : 0, 0.62)).normalize()
-      const quat = new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 0, 1), normal)
-      const up = new THREE.Vector3(0, 1, 0).applyQuaternion(quat)
-      moments.push({ index: moments.length, item, slice: sl, pos, normal, w, h: hh, track: [tx, ty], quat, up })
-      break
+    let placed = false
+    while (!placed) {
+      for (const slot of order) {
+        const k = `${slot},${sl}`
+        const n = load.get(k) ?? 0
+        if (n >= perSlot) continue
+        load.set(k, n + 1)
+        const a = aspects.get(item.id) ?? 0.75
+        const maxS = item.kind === 'output' ? 2.5 : 2.25
+        let w = maxS
+        let hh = w / a
+        if (hh > maxS) { hh = maxS; w = hh * a }
+        const S = SLOTS[slot]
+        const z = sliceZ(sl) + (n - (perSlot - 1) / 2) * 3.8
+        const c = path(sl)
+        const pos = new THREE.Vector3(c.x + S.x, c.y + S.y, z)
+        // face into the tunnel and back up it, toward you
+        const normal = new THREE.Vector3(S.nx * 0.62, S.ny * 0.62, 0.78).normalize()
+        const quat = new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 0, 1), normal)
+        const up = new THREE.Vector3(0, 1, 0).applyQuaternion(quat)
+        const T = SLOTS[pref[0]]
+        moments.push({ index: moments.length, item, slice: sl, pos, normal, w, h: hh, track: [T.x - T.nx * 1.4, T.y - T.ny * 1.4], quat, up })
+        placed = true
+        break
+      }
+      if (!placed) sl = Math.min(sl + 1, slices.length - 1)
+      if (!placed && sl === slices.length - 1 && order.every((x) => (load.get(`${x},${sl}`) ?? 0) >= perSlot)) break
     }
   }
 
