@@ -72,7 +72,7 @@ const webCopy = (src, folder, base) => {
   }
   return `${folder}/${base}.jpg`
 }
-const IMG = /\.(jpe?g|png|heic|webp)$/i
+const IMG = /\.(jpe?g|png|heic|webp|dng)$/i
 
 // The life archive, read image by image (scripts/manifest.mjs)
 const newDir = join(root, 'inbox/new')

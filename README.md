@@ -2,7 +2,11 @@
 
 **Everything I saved and everything I made, extruded through time.**
 
-**Live:** https://thomas-jichen.github.io/tesseract/  ·  trailer take: https://thomas-jichen.github.io/tesseract/?cinema
+### 🔗 Live: **[thomas-jichen.github.io/tesseract](https://thomas-jichen.github.io/tesseract/)**
+
+Trailer take: [`?cinema`](https://thomas-jichen.github.io/tesseract/?cinema) · Repo: [github.com/thomas-jichen/tesseract](https://github.com/thomas-jichen/tesseract)
+
+> First load takes ~20 s while 205 prints download and are re-printed onto paper. Open it a minute before showing it.
 
 Built at the SF Non-Slop Hackathon (Pangram × Kino × Capy × Paper, Nov 24 2026). The theme was *"What matters when you can generate anything? Can you explain your choices?"*
 
@@ -28,13 +32,15 @@ There's no interface: no title, no labels, no launch screen. You fall in and dri
 ## What's in it
 
 - **Inputs:** 24 Letterboxd diary films (with watch dates and ratings), 38 Pinterest saves, and the places and works I went to see (Warhol, Van Gogh, the Evangelion exhibition, Google).
-- **Outputs:** Snow Mountain Lake House (architecture model, photos and `.glb`), the Batarang 3D Art Final (`.glb`), and a life archive of 71 photos read one by one (`scripts/manifest.mjs`):
-  - football: from a ball at one, to the Main Quad, to #29 under the lights
-  - photography: Shanghai, Xi'an, NYC
-  - physical projects: gauntlet sketch → armour → arc reactor → the gauntlet worn; cloud chamber; 3D prints
-  - science: asteroid frames → poster → PHYS073
-  - code and hackathons, art, cubing, food
-- **Timeline:** 1998 → now. Long empty stretches fold down.
+- **Outputs:** Snow Mountain Lake House (architecture model, photos and `.glb`), the Batarang 3D Art Final (`.glb`), and a life archive of **137 photos**, read one by one (`scripts/manifest.mjs`):
+  - **football (11):** a ball at one → the Main Quad → #29 under the lights → kicking → the ward, on crutches → Kamikōchi in a brace
+  - **photography (31):** Shanghai, Xi'an, Tokyo, Seoul, NYC, Yosemite
+  - **physical projects (15):** gauntlet sketch → armour shells → arc reactor → muscle sensors → the gauntlet worn; CD spinners; 3D prints
+  - **science (17):** asteroid frames → poster → PHYS073 → observatory domes; the cloud chamber; labs; two robot arms
+  - **code (13):** desks, late code, shady.Hacks → demo → finalists → overall winner (TerragentX)
+  - **roots and life (13):** old Pudong, trains, *Me llamo Thomas Jichen Wang*, walking onto campus, Stanford in red, graduation, Hoover Tower in fall
+  - **seen (14), food and cooking (15), art (4), play (5)**
+- **Timeline:** 1998 → November 2026. Long empty stretches fold down. 205 moments, 57 with stated lineage.
 - **Threads:** the four bundles around your path each split into up to four threads, one per kind of thing.
   - Upper corners (what went in): films, pins, seen, roots, play, food.
   - Lower corners (what came out): photography, art, architecture, physical projects, football, science, code.
@@ -44,7 +50,9 @@ There's no interface: no title, no labels, no launch screen. You fall in and dri
   - gauntlet sketch → gauntlet
   - bulldog kalimba → bulldog logo → shady.Hacks
   - Warhol → pink portrait → on the wall
-  - Unit-01 figure → exhibition → statue → *Evangelion*
+  - Unit-01 figure → exhibition → statue → *Evangelion* → the shirt
+  - Thomas the Tank Engine, a camera, a galaxy and Cristiano → *Me llamo Thomas Jichen Wang*
+  - *Chef* → latte art, steak and mushrooms, steak toast
   - Batarang 3D ← *The Dark Knight*, *Iron Man*, the 2022 batarang
 
   Things with no stated lineage get one faint amber "echo" to the earlier save whose colours most resemble them. Echoes are inferred, not claimed.

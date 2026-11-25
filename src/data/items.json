@@ -432,7 +432,8 @@
   "date": "2024-10",
   "image": "new/IMG_5439.jpg",
   "influences": [
-   "film:chef"
+   "film:chef",
+   "new:IMG_8148"
   ]
  },
  {
@@ -703,6 +704,108 @@
   "image": "new/DSC_1410.jpg"
  },
  {
+  "id": "new:DSC_1426",
+  "kind": "output",
+  "medium": "photo",
+  "title": "Shopfront, Shanghai dusk",
+  "date": "2025-07",
+  "image": "new/DSC_1426.jpg"
+ },
+ {
+  "id": "new:DSC_1466",
+  "kind": "output",
+  "medium": "photo",
+  "title": "JZ Club",
+  "date": "2025-07",
+  "image": "new/DSC_1466.jpg"
+ },
+ {
+  "id": "new:DSC_1505",
+  "kind": "output",
+  "medium": "photo",
+  "title": "1000 Trees",
+  "date": "2025-07",
+  "image": "new/DSC_1505.jpg"
+ },
+ {
+  "id": "new:DSC_1531",
+  "kind": "input",
+  "medium": "seen",
+  "title": "A city of books",
+  "date": "2025-07",
+  "image": "new/DSC_1531.jpg"
+ },
+ {
+  "id": "new:DSC_1558",
+  "kind": "input",
+  "medium": "seen",
+  "title": "Figure, gallery",
+  "date": "2025-07",
+  "image": "new/DSC_1558.jpg"
+ },
+ {
+  "id": "new:DSC_1577",
+  "kind": "input",
+  "medium": "seen",
+  "title": "Standing in front of it",
+  "date": "2025-07",
+  "image": "new/DSC_1577.jpg"
+ },
+ {
+  "id": "new:DSC_1601",
+  "kind": "input",
+  "medium": "seen",
+  "title": "Reaching for the sun",
+  "date": "2025-07",
+  "image": "new/DSC_1601.jpg"
+ },
+ {
+  "id": "new:DSC_1641",
+  "kind": "output",
+  "medium": "photo",
+  "title": "Piano under a pterosaur",
+  "date": "2025-07",
+  "image": "new/DSC_1641.jpg"
+ },
+ {
+  "id": "new:DSC_1660",
+  "kind": "output",
+  "medium": "photo",
+  "title": "A ship of light",
+  "date": "2025-07",
+  "image": "new/DSC_1660.jpg"
+ },
+ {
+  "id": "new:DSC_2423",
+  "kind": "output",
+  "medium": "photo",
+  "title": "Sensō-ji, framed",
+  "date": "2025-07",
+  "image": "new/DSC_2423.jpg",
+  "influences": [
+   "new:DSC_1380"
+  ]
+ },
+ {
+  "id": "new:IMG_7928",
+  "kind": "output",
+  "medium": "cooking",
+  "title": "Latte art, home",
+  "date": "2025-07",
+  "image": "new/IMG_7928.jpg",
+  "influences": [
+   "film:chef"
+  ]
+ },
+ {
+  "id": "new:IMG_8148",
+  "kind": "input",
+  "medium": "cooking",
+  "title": "Matcha cream, two cakes",
+  "date": "2025-07",
+  "image": "new/IMG_8148.jpg"
+ },
+ {
   "id": "pin:p32",
   "kind": "input",
   "medium": "pin",
@@ -719,6 +822,25 @@
   "date": "2025-08",
   "approx": true,
   "image": "pins/p33.jpg"
+ },
+ {
+  "id": "new:P1000645",
+  "kind": "output",
+  "medium": "science",
+  "title": "Observatory control room",
+  "date": "2025-08",
+  "image": "new/P1000645.jpg"
+ },
+ {
+  "id": "new:P1000648",
+  "kind": "output",
+  "medium": "science",
+  "title": "Under the dome",
+  "date": "2025-08",
+  "image": "new/P1000648.jpg",
+  "influences": [
+   "new:IMG_5623"
+  ]
  },
  {
   "id": "pin:p30",
@@ -739,6 +861,36 @@
   "image": "pins/p31.jpg"
  },
  {
+  "id": "new:DSC_3774",
+  "kind": "output",
+  "medium": "photo",
+  "title": "Pagoda in scaffolding",
+  "date": "2025-09",
+  "image": "new/DSC_3774.jpg"
+ },
+ {
+  "id": "new:DSC_4050",
+  "kind": "input",
+  "medium": "life",
+  "title": "Walking onto campus",
+  "date": "2025-09",
+  "image": "new/DSC_4050.jpg"
+ },
+ {
+  "id": "new:PNG image",
+  "kind": "output",
+  "medium": "life",
+  "title": "Me llamo Thomas Jichen Wang",
+  "date": "2025-09",
+  "image": "new/PNG image.jpg",
+  "influences": [
+   "new:IMG_0277",
+   "new:IMG_0159",
+   "new:DSC_6092",
+   "new:IMG_7630"
+  ]
+ },
+ {
   "id": "pin:p28",
   "kind": "input",
   "medium": "pin",
@@ -755,6 +907,14 @@
   "date": "2025-10",
   "approx": true,
   "image": "pins/p29.jpg"
+ },
+ {
+  "id": "new:DSC_4423",
+  "kind": "output",
+  "medium": "football",
+  "title": "Kicking, #2",
+  "date": "2025-10",
+  "image": "new/DSC_4423.jpg"
  },
  {
   "id": "film:la-jetee",
@@ -784,6 +944,22 @@
   "image": "pins/p27.jpg"
  },
  {
+  "id": "new:IMG_9150",
+  "kind": "output",
+  "medium": "science",
+  "title": "Titration",
+  "date": "2025-11",
+  "image": "new/IMG_9150.jpg"
+ },
+ {
+  "id": "new:IMG_9154",
+  "kind": "output",
+  "medium": "science",
+  "title": "Three beakers",
+  "date": "2025-11",
+  "image": "new/IMG_9154.jpg"
+ },
+ {
   "id": "pin:p23",
   "kind": "input",
   "medium": "pin",
@@ -809,6 +985,25 @@
   "date": "2025-12",
   "approx": true,
   "image": "pins/p25.jpg"
+ },
+ {
+  "id": "new:0b54ada1752fc371ac12728396ce9821",
+  "kind": "input",
+  "medium": "life",
+  "title": "Stanford, in red",
+  "date": "2025-12",
+  "image": "new/0b54ada1752fc371ac12728396ce9821.jpg",
+  "influences": [
+   "new:IMG_7630"
+  ]
+ },
+ {
+  "id": "new:P1000869",
+  "kind": "input",
+  "medium": "seen",
+  "title": "The pink pig 911",
+  "date": "2025-12",
+  "image": "new/P1000869.jpg"
  },
  {
   "id": "film:rush-hour",
@@ -845,6 +1040,34 @@
   "date": "2026-01",
   "approx": true,
   "image": "pins/p22.jpg"
+ },
+ {
+  "id": "new:IMG_0319",
+  "kind": "output",
+  "medium": "photo",
+  "title": "Shanghai Tower, from below",
+  "date": "2026-01",
+  "image": "new/IMG_0319.jpg",
+  "influences": [
+   "new:d4483e7740f69361d2ed05df9ba14761",
+   "new:DSC_3530"
+  ]
+ },
+ {
+  "id": "new:P1000892",
+  "kind": "output",
+  "medium": "photo",
+  "title": "In Dionysus we trust",
+  "date": "2026-01",
+  "image": "new/P1000892.jpg"
+ },
+ {
+  "id": "new:classicu 2026-01-11 091430.407",
+  "kind": "input",
+  "medium": "cooking",
+  "title": "Brunch, two lattes",
+  "date": "2026-01",
+  "image": "new/classicu 2026-01-11 091430.407.jpg"
  },
  {
   "id": "film:dont-look-up-2021",
@@ -899,6 +1122,33 @@
   "date": "2026-02",
   "approx": true,
   "image": "pins/p20.jpg"
+ },
+ {
+  "id": "new:DSC_5670",
+  "kind": "output",
+  "medium": "photo",
+  "title": "Two dancers",
+  "date": "2026-02",
+  "image": "new/DSC_5670.jpg"
+ },
+ {
+  "id": "new:IMG_7555",
+  "kind": "output",
+  "medium": "photo",
+  "title": "Shooting lunch",
+  "date": "2026-02",
+  "image": "new/IMG_7555.jpg",
+  "influences": [
+   "new:ef3155391664483759832877250b8e75"
+  ]
+ },
+ {
+  "id": "new:P1000914",
+  "kind": "input",
+  "medium": "cooking",
+  "title": "Oysters by the bridge",
+  "date": "2026-02",
+  "image": "new/P1000914.jpg"
  },
  {
   "id": "film:crazy-rich-asians",
@@ -975,6 +1225,39 @@
   "date": "2026-03",
   "approx": true,
   "image": "pins/p18.jpg"
+ },
+ {
+  "id": "new:IMG_1049",
+  "kind": "output",
+  "medium": "code",
+  "title": "Night desk, a DJ set",
+  "date": "2026-03",
+  "image": "new/IMG_1049.jpg",
+  "influences": [
+   "new:IMG_4934"
+  ]
+ },
+ {
+  "id": "new:IMG_1077",
+  "kind": "output",
+  "medium": "football",
+  "title": "Crutches in the back seat",
+  "date": "2026-03",
+  "image": "new/IMG_1077.jpg",
+  "influences": [
+   "new:c60bea554c9be60b71e45774bf22fe8c"
+  ]
+ },
+ {
+  "id": "new:c60bea554c9be60b71e45774bf22fe8c",
+  "kind": "output",
+  "medium": "football",
+  "title": "The ward, on crutches",
+  "date": "2026-03",
+  "image": "new/c60bea554c9be60b71e45774bf22fe8c.jpg",
+  "influences": [
+   "new:IMG_5220"
+  ]
  },
  {
   "id": "film:rush-hour-2",
@@ -1076,6 +1359,25 @@
   "image": "pins/p16.jpg"
  },
  {
+  "id": "new:IMG_1222",
+  "kind": "output",
+  "medium": "science",
+  "title": "In the lab",
+  "date": "2026-04",
+  "image": "new/IMG_1222.jpg"
+ },
+ {
+  "id": "new:IMG_1223",
+  "kind": "output",
+  "medium": "science",
+  "title": "Sample stage",
+  "date": "2026-04",
+  "image": "new/IMG_1223.jpg",
+  "influences": [
+   "new:IMG_1222"
+  ]
+ },
+ {
   "id": "film:chef",
   "kind": "input",
   "medium": "film",
@@ -1119,6 +1421,61 @@
   "date": "2026-05",
   "approx": true,
   "image": "pins/p14.jpg"
+ },
+ {
+  "id": "new:IMG_1399",
+  "kind": "input",
+  "medium": "cooking",
+  "title": "Bandeja paisa",
+  "date": "2026-05",
+  "image": "new/IMG_1399.jpg"
+ },
+ {
+  "id": "new:IMG_1487",
+  "kind": "output",
+  "medium": "cooking",
+  "title": "Steak and mushrooms, at home",
+  "date": "2026-05",
+  "image": "new/IMG_1487.jpg",
+  "influences": [
+   "film:chef",
+   "new:IMG_7306"
+  ]
+ },
+ {
+  "id": "new:IMG_1508",
+  "kind": "output",
+  "medium": "cooking",
+  "title": "Steak toast, avocado, arugula",
+  "date": "2026-05",
+  "image": "new/IMG_1508.jpg",
+  "influences": [
+   "film:chef",
+   "new:IMG_1487"
+  ]
+ },
+ {
+  "id": "new:IMG_1719",
+  "kind": "output",
+  "medium": "cooking",
+  "title": "Wings and flank steak",
+  "date": "2026-05",
+  "image": "new/IMG_1719.jpg",
+  "influences": [
+   "film:chef",
+   "new:IMG_1487"
+  ]
+ },
+ {
+  "id": "new:IMG_1740",
+  "kind": "output",
+  "medium": "cooking",
+  "title": "Seared, with a glass of milk",
+  "date": "2026-05",
+  "image": "new/IMG_1740.jpg",
+  "influences": [
+   "new:IMG_1719"
+  ]
  },
  {
   "kind": "output",
@@ -1172,6 +1529,55 @@
   "image": "pins/p11.jpg"
  },
  {
+  "id": "new:DSC_6596",
+  "kind": "output",
+  "medium": "life",
+  "title": "Graduation",
+  "date": "2026-06",
+  "image": "new/DSC_6596.jpg",
+  "influences": [
+   "new:DSC_4050"
+  ]
+ },
+ {
+  "id": "new:IMG_2133",
+  "kind": "output",
+  "medium": "science",
+  "title": "Telescope at dusk",
+  "date": "2026-06",
+  "image": "new/IMG_2133.jpg",
+  "influences": [
+   "new:P1000648"
+  ]
+ },
+ {
+  "id": "new:IMG_2198",
+  "kind": "output",
+  "medium": "code",
+  "title": "The new desk",
+  "date": "2026-06",
+  "image": "new/IMG_2198.jpg",
+  "influences": [
+   "new:IMG_1049"
+  ]
+ },
+ {
+  "id": "new:IMG_2366",
+  "kind": "input",
+  "medium": "cooking",
+  "title": "Wagyu, Tokyo",
+  "date": "2026-06",
+  "image": "new/IMG_2366.jpg"
+ },
+ {
+  "id": "new:IMG_2367",
+  "kind": "input",
+  "medium": "cooking",
+  "title": "Wagyu and ikura",
+  "date": "2026-06",
+  "image": "new/IMG_2367.jpg"
+ },
+ {
   "id": "pin:p08",
   "kind": "input",
   "medium": "pin",
@@ -1190,6 +1596,64 @@
   "image": "pins/p09.jpg"
  },
  {
+  "id": "new:DSCN1825-2",
+  "kind": "input",
+  "medium": "life",
+  "title": "Kamikōchi, in a brace",
+  "date": "2026-07",
+  "image": "new/DSCN1825-2.jpg",
+  "influences": [
+   "new:IMG_1077"
+  ]
+ },
+ {
+  "id": "new:E823325E-16DA-496A-9AEE-50224F5A8B51",
+  "kind": "output",
+  "medium": "photo",
+  "title": "Banpo Bridge fountain",
+  "date": "2026-07",
+  "image": "new/E823325E-16DA-496A-9AEE-50224F5A8B51.jpg"
+ },
+ {
+  "id": "new:IMG_2634",
+  "kind": "input",
+  "medium": "seen",
+  "title": "Salomon XT-6",
+  "date": "2026-07",
+  "image": "new/IMG_2634.jpg"
+ },
+ {
+  "id": "new:IMG_2649",
+  "kind": "input",
+  "medium": "seen",
+  "title": "A store, all white",
+  "date": "2026-07",
+  "image": "new/IMG_2649.jpg"
+ },
+ {
+  "id": "new:IMG_2838",
+  "kind": "input",
+  "medium": "seen",
+  "title": "Evangelion, on a shirt",
+  "date": "2026-07",
+  "image": "new/IMG_2838.jpg",
+  "influences": [
+   "new:25c5c7803145157b318e08feecf582d5"
+  ]
+ },
+ {
+  "id": "new:IMG_3324",
+  "kind": "output",
+  "medium": "photo",
+  "title": "The skyline, with friends",
+  "date": "2026-07",
+  "image": "new/IMG_3324.jpg",
+  "influences": [
+   "new:d4483e7740f69361d2ed05df9ba14761",
+   "new:DSC_1380"
+  ]
+ },
+ {
   "id": "pin:p06",
   "kind": "input",
   "medium": "pin",
@@ -1206,6 +1670,42 @@
   "date": "2026-08",
   "approx": true,
   "image": "pins/p07.jpg"
+ },
+ {
+  "id": "new:IMG_3486",
+  "kind": "output",
+  "medium": "photo",
+  "title": "The Bund, a moon",
+  "date": "2026-08",
+  "image": "new/IMG_3486.jpg",
+  "influences": [
+   "new:d4483e7740f69361d2ed05df9ba14761",
+   "new:IMG_0319"
+  ]
+ },
+ {
+  "id": "new:IMG_3665",
+  "kind": "input",
+  "medium": "cooking",
+  "title": "Green juice",
+  "date": "2026-08",
+  "image": "new/IMG_3665.jpg"
+ },
+ {
+  "id": "new:IMG_3667",
+  "kind": "input",
+  "medium": "cooking",
+  "title": "Durian, and everything else",
+  "date": "2026-08",
+  "image": "new/IMG_3667.jpg"
+ },
+ {
+  "id": "new:P1010549",
+  "kind": "output",
+  "medium": "photo",
+  "title": "Coast road",
+  "date": "2026-08",
+  "image": "new/P1010549.jpg"
  },
  {
   "id": "pin:p04",
@@ -1244,6 +1744,72 @@
   "image": "pins/p03.jpg"
  },
  {
+  "id": "new:DSC04200",
+  "kind": "output",
+  "medium": "code",
+  "title": "Demo",
+  "date": "2026-10",
+  "image": "new/DSC04200.jpg"
+ },
+ {
+  "id": "new:DSC04204",
+  "kind": "output",
+  "medium": "code",
+  "title": "Pitching",
+  "date": "2026-10",
+  "image": "new/DSC04204.jpg",
+  "influences": [
+   "new:DSC_5596"
+  ]
+ },
+ {
+  "id": "new:DSC04333",
+  "kind": "output",
+  "medium": "code",
+  "title": "Finalists",
+  "date": "2026-10",
+  "image": "new/DSC04333.jpg",
+  "influences": [
+   "new:DSC04204"
+  ]
+ },
+ {
+  "id": "new:IMG_4801",
+  "kind": "input",
+  "medium": "seen",
+  "title": "The solar car",
+  "date": "2026-10",
+  "image": "new/IMG_4801.jpg"
+ },
+ {
+  "id": "new:IMG_5203",
+  "kind": "input",
+  "medium": "life",
+  "title": "Hoover Tower, fall",
+  "date": "2026-10",
+  "image": "new/IMG_5203.jpg",
+  "influences": [
+   "new:IMG_7630",
+   "new:0b54ada1752fc371ac12728396ce9821"
+  ]
+ },
+ {
+  "id": "new:IMG_9786_Original",
+  "kind": "input",
+  "medium": "life",
+  "title": "SAPING",
+  "date": "2026-10",
+  "image": "new/IMG_9786_Original.jpg"
+ },
+ {
+  "id": "new:P1010661",
+  "kind": "input",
+  "medium": "life",
+  "title": "Three on the turf",
+  "date": "2026-10",
+  "image": "new/P1010661.jpg"
+ },
+ {
   "id": "pin:p00",
   "kind": "input",
   "medium": "pin",
@@ -1260,6 +1826,68 @@
   "date": "2026-11",
   "approx": true,
   "image": "pins/p01.jpg"
+ },
+ {
+  "id": "new:IMG_5728",
+  "kind": "output",
+  "medium": "science",
+  "title": "Two arms, one box",
+  "date": "2026-11",
+  "image": "new/IMG_5728.jpg",
+  "influences": [
+   "new:IMG_4084",
+   "new:IMG_5852"
+  ]
+ },
+ {
+  "id": "new:IMG_5852",
+  "kind": "input",
+  "medium": "code",
+  "title": "Prizes: an arm kit, a Cursor box",
+  "date": "2026-11",
+  "image": "new/IMG_5852.jpg",
+  "influences": [
+   "new:IMG_9761"
+  ]
+ },
+ {
+  "id": "new:IMG_5943",
+  "kind": "output",
+  "medium": "object",
+  "title": "Three-window keychain",
+  "date": "2026-11",
+  "image": "new/IMG_5943.jpg"
+ },
+ {
+  "id": "new:IMG_9761",
+  "kind": "output",
+  "medium": "code",
+  "title": "Overall winner — TerragentX",
+  "date": "2026-11",
+  "image": "new/IMG_9761.jpg",
+  "influences": [
+   "new:DSC04333",
+   "new:DSC_5596"
+  ]
+ },
+ {
+  "id": "new:P1010932",
+  "kind": "output",
+  "medium": "photo",
+  "title": "Yosemite Valley",
+  "date": "2026-11",
+  "image": "new/P1010932.jpg"
+ },
+ {
+  "id": "new:P1010987",
+  "kind": "output",
+  "medium": "photo",
+  "title": "Snow on the rock",
+  "date": "2026-11",
+  "image": "new/P1010987.jpg",
+  "influences": [
+   "new:P1010932"
+  ]
  },
  {
   "kind": "output",
