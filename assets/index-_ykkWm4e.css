@@ -1,0 +1,1 @@
+*{box-sizing:border-box;margin:0;padding:0}html,body,#root{background:#030202;width:100%;height:100%;overflow:hidden}body{-webkit-user-select:none;user-select:none;touch-action:none}.stage{cursor:grab;inset:0;position:fixed!important}.fold{opacity:0;pointer-events:none;background:#fff4e0;position:fixed;inset:0}
